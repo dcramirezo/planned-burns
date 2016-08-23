@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leaflet</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3
+        &key=AIzaSyCqvGp5OH2ZQ6WPjVL8i9VM3hTIQCh0CFk&sensor=false&async=2&callback=initMap"></script>
+    <script src="http://matchingnotes.com/javascripts/leaflet-google.js"></script>
+  <!--link rel="stylesheet" type="text/css" href="C:/GitHub/planned-burns/PlannedBurns/css/styles.css"-->
+  <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+<nav class="navbar navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <!--button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button-->
+          <a class="navbar-brand" href="http://www.delwp.vic.gov.au/"><img src="http://www.delwp.vic.gov.au/__data/assets/image/0008/295163/VICGOV_ENVIRONMENT_LOGO_WHITE_65pix.png" style="height: 40px;"></a>
+
+
+        </div>
+        <h2 style="color: #ffffff;">Planned Burns in Victoria</h2>
+        <!--div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+  <div class="topbar">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-4">
+      <div class="btn-group">
+        <button class="btn btn-default" type="button">List</button>
+        <button class="btn btn-default" type="button">Both</button>
+          <button class="btn btn-default navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar-wrapper" aria-controls="sidebar-wrapper" aria-expanded="false" aria-label="Toggle navigation">
+    &#9776;
+         </button>
+
+      </div>
+</div>
+<div class="col-md-4">
+     <div class="input-group">
+      
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Search">
+      <span class="input-group-btn"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
+    </div>
+    </div>
+    </div>
+     </div>
+</div>
+  <!--div class="collapse" id="exCollapsingNavbar">
+    <div class="bg-inverse p-a-1">
+      <h4>Collapsed content</h4>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+  </div-->
+</div>
+<div id="wrapper">
+        <!-- Sidebar -->
+        <div id="container" class="sidebar-opened sidebar-collapsed">
+    <div id="sidebar" aria-hidden="false">
+    Some random table goes here
+    </div><!-- /#sidebar-wrapper -->
+    
+        
+            <div class="map-tiles" id="map" ></div>
+    
+    </div>        
+    </div>
+    
+    <script type='text/javascript'>
+      var map = new L.Map('map', {center: new L.LatLng(-37.471308, 144.785153), zoom: 6});
+      var ggls = new L.Google('SATELLITE');
+    var gglr = new L.Google('ROADMAP');
+    var gglh = new L.Google('HYBRID');
+    var gglt = new L.Google('TERRAIN');
+      map.addLayer(gglr);
+      map.addControl(new L.Control.Layers( {'Google Satellite':ggls, 'Google Roadmap':gglr, 'Google Hybrid':gglh, 'Google Terrain':gglt}, {}));
+    </script>
+  </body>
+</html>
