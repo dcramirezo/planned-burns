@@ -1,11 +1,11 @@
 .navbar {
     margin-bottom: 0;
-  }
+}
   
   .navbar-static-top {
-  border: 0;
-  height: 65px;
-      background: #263238;
+    border: 0;
+    height: 65px;
+    background: #263238;
     border-bottom: 4px solid #16838e;
 }
 
@@ -13,6 +13,7 @@
     left: 0;
     width: 100%;
 }
+
 #sidebar {
     height: 100%;
     z-index: 3000;
@@ -36,34 +37,35 @@
 
 .map-tiles {
     margin-left: 420px;
-    
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    }
-   
-      #map {
+}
+
+#map {
     position: relative;
     width: auto;
     height: 100%;
+}
 
-  }
-  #container {
-        position: relative;
+#container {
+    position: relative;
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
-  #wrapper {
+
+#wrapper {
     position: absolute;
     top: 0;
     height: 100%;
-        left: 0;
+    left: 0;
     width: 100%;
-        padding: 105px 0 20px;
+    padding: 105px 0 20px;
 }
+
 .topbar {
     height: 40px;
     padding-top: 0;
