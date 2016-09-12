@@ -1,0 +1,94 @@
+/*DELWP logo inner div - mobile and tablets*/
+#DELWP-logo-sm-xs{
+	padding-top:1px;
+	width: 100px;
+	height:28px;
+	border-radius: 2px;
+}
+/*Logo bar - First row - First col*/
+#LB-1-row-1-col{
+	padding-left: 0px;
+}
+/*Logo bar - First row - last col*/
+#LB-1-row-3-col{
+	padding-right: 0px;
+}
+
+#shareBtn-logo-sm-xs{
+	width: 28px;
+	height:28px;
+}
+
+/* Share button - mobile/tablets*/
+.shareBtn{
+		float: right;
+		max-width: 40px;
+		max-height: 40px;
+		padding-top: 0px;		
+}
+
+/* -----------Toggle-Menu-button which will be only appeared in Mobiles/tablets----------*/
+
+#cpBtn{
+	position: relative;
+	float: right;
+	right: 1px;
+	width: 36px;
+	height: 30px;
+	background: linear-gradient(#FFF,#DDD);
+	border: #AAA 1px solid;
+	border-radius: 2px;
+	padding: 2px 7px;
+	cursor: pointer;
+	transition: border 0.3s linear 0s;
+}
+/*
+#cpBtn:active{
+	border: #06F 1px solid;
+}
+#cpBtn:active div{
+	background: #06F;
+}
+*/
+#cpBtn > div{
+	width: 20px;
+	height: 4px;
+	background: #333;
+	margin: 3px 0px;
+	border-radius: 4px;
+	transition: background 0.3s linear 0s;
+}
+#cp{
+	position: fixed;
+	right: -260;
+	top: 30px;
+	width: 200px;
+	height: 200px;
+	background: #DDD;
+	opacity: 0;
+	transition: opacity 0.3s linear 0s, right 0s linear 0s;
+	border-radius= 25px;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+/************************************ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
