@@ -1,1 +1,107 @@
+html, body, .container, .tab-content, .tab-pane  {
+	height: 100%;
+	width: 100%;
+}
+
+/* Side bar*/
+#sideBar{
+	padding-top: 20px; 
+	padding-left: 5px;" 
+}
+
+/* Map container*/
+#map-canvas {
+  width:100%;
+  height:800px;
+}
+
+/*DELWP logo - desktop/large screens*/
+#DELWPLogoDiv-md-lg{
+	padding-left: 5px;
+}
+
+/*DELWP logo - desktop/large screens*/
+#DELWP-logo-md-lg{
+	width: 250px;
+	height: 50px;
+}
+/* List and Filter buttons*/
+#ListFilterBtns{
+	padding-top:10px;
+}
+
+/*Icons of the logo bar -  desktop/large screens*/
+.Licon{
+	max-width: 45px;
+	max-height: 45px;
+	padding-top:10px;
+}
+
+/* Filter button class - desktop/large screens */
+.btn-xl {
+    padding: 8px 44px;
+    font-size: 15px;
+    border-radius: 8px;
+}
+
+/* Tab buttons - desktop/large screens*/
+.nav-pills{
+    background-color: #F8F8F8;
+}
+/* Logo bar for Desktops/large screens*/
+#logoBar{
+	padding-right:0px;
+	height: 50px;
+}
+
+/*search bar - Desktops/large screens*/
+#searchBar{
+	padding-top: 10px;
+	text-align: center;
+}
+
+#listOfBurns{
+	display: none;
+}
+/* */
+#sharePanel{
+	position: absolute;
+	display: none;
+	//right: -260;
+	//top: 30px;
+	width: 200px;
+	height: 50px;
+	background: #DDD;
+	opacity: 1;
+	//transition: opacity 0.3s linear 0s, right 0s linear 0s;
+	border-radius= 25px;
+	z-index: 1000;
+	cursor: pointer;
+}
+/* Change the cursor of the tables' row to pointer*/
+.clickable-row{
+	cursor:pointer;
+}
+
+.icon{
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
