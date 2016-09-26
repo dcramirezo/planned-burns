@@ -1,107 +1,83 @@
-(function(window, google){
-	//map options
-	var  options = { 
-       center: {
-          lat: -37.4713,
-          lng: 144.7852
-        },
-       zoom: 7,
-      disableDefaultUI: false
-   }, 
-  element = document.getElementById('map-canvas'),
 
-  //map 
-  map= new google.maps.Map(element, options); 
+require([
+	"esri/map", 
+	"esri/dijit/BasemapGallery",
+	"esri/layers/FeatureLayer",
+	"dojo/on", 
+	"dojo/dom", 
+	"dojo/domReady!"
+	], 
+	function(Map, BasemapGallery, FeatureLayer, on, dom) {
+		// Create map
+		var map = new Map("mapDiv",{ 
+		  basemap: "national-geographic",
+		  center: [145.45,-37],
+		  zoom: 7
+		});
 
-  var marker1 = new google.maps.Marker({
-      position:{
-         lat: -37.4713,
-         lng: 144.7852
-      },
-      map: map
-   });
+	//"esri/layers/FeatureLayer",
+	//"esri/views/MapView",
 
-   /*
-  var marker2 = new google.maps.Marker({
-      position:{
-         lat: -37.4713,
-         lng: 145.7852
-      },
-      map: map
-   });
 
-   */
-// POLYGON
-
-        // Define the LatLng coordinates for the polygon.
-        var DateOfBurn =10;
-        var chgColorBODate ;
-        if (DateOfBurn >10) { chgColorBODate= '#00FF00'; } else { chgColorBODate= '#00FF00';}
-        var triangleCoords = [
-            {lat: -36.774, lng: 142.190},
-            {lat: -35.774, lng: 140.190},
-            {lat: -34.774, lng: 141.190}
-        ];
-
-		/*
-        // Construct the polygon.
-        var bermudaTriangle = new google.maps.Polygon({
-          paths: triangleCoords,
-          strokeColor: chgColorBODate,
-          strokeOpacity: 0.8,
-          strokeWeight: 3,
-          fillColor: chgColorBODate,
-          fillOpacity: 0.35
-        });
-        bermudaTriangle.setMap(map);
-		*/
-
-// Polygon 2 +++++++++++++++++++++
-
- // Define the LatLng coordinates for the polygon.
-        var triangleCoords1 = [
-            {lat: -36.111, lng: 140.190},
-            {lat: -35.222, lng: 143.190},
-            {lat: -33.774, lng: 144.190}
-        ];
-
-        // Construct the polygon.
-        var bermudaTriangle1 = new google.maps.Polygon({
-          paths: triangleCoords1,
-          strokeColor: 'chgColorBODate',
-          strokeOpacity: 0.8,
-          strokeWeight: 3,
-          fillColor: chgColorBODate,
-          fillOpacity: 0.35
-        });
-        bermudaTriangle1.setMap(map);
-
+		// Create and add the maps from ArcGIS.com 
+		var basemapGallery = new BasemapGallery({
+		  showArcGISBasemaps: true,
+		  map: map
+		}, "basemapGallery");
+		basemapGallery.startup();
 		
-		var center;
-		function calculateCenter() {
-			center = new google.maps.LatLng(-37.4713,144.7852);
-		}
-		google.maps.event.addDomListener(map, 'idle', function() {
-			calculateCenter();
+
+		// Listen to the basemap selection and set the title
+		on(basemapGallery, "onSelectionChange", function() {
+		  dom.byId("userMessage").innerHTML = basemapGallery.getSelected().title;
 		});
-		google.maps.event.addDomListener(window, 'resize', function() {
-			var height = window.innerHeight ;
-			/* If it's a tablet/mobile then deduct the logo and utility bar height from the total height to resize the map's height based on that*/
-			if (height <=818) height = height-80 + "px"; 
-			else  height = height+ "px";
-			document.getElementById('map-canvas').style.height = height; /* Change the height of the map then reload it*/
-			map.setCenter(center);
+		
+		
+		/* Basemap - First button - Imagery */
+		$('#streets').click(function(){
+			 map.setBasemap("streets");
 		});
-		/* Resize the map-canvas div based on the device's height when the page loads */
-		window.onload = function(){
-			var height = window.innerHeight ;
-			/* If it's a tablet/mobile then deduct the logo and utility bar height from the total height to resize the map's height based on that*/
-			if (height <=818) height = height-80 + "px"; 
-			else  height = height-50	+ "px";
-			document.getElementById('map-canvas').style.height = height; /* Change the height of the map then reload it*/
-			map.setCenter(center);
-		}				
-}(window, google) );
+		/* Basemap - Second button - Imagery */
+		$('#imagery').click(function(){
+			 map.setBasemap("hybrid");
+		});
+		/* Basemap - Third button - Imagery */
+		$('#national_geographic').click(function(){
+			 map.setBasemap("national-geographic");
+		});
+		/* Basemap - Forth button - Imagery */
+		$('#topo').click(function(){
+			 map.setBasemap("topo");
+		});
+
+	 // var featureLayer1 = new FeatureLayer({
+		//url: "http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/3"
+	  //});
+	  var featureLayer2 = new FeatureLayer({
+		url: "http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/5"
+	  });
+	 // map.add(featureLayer1);	  
+	  map.add(featureLayer2);	  
+		
+
+    });
+
+// national-geographic, hybrid, topo, gray, dark-gray, oceans, osm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
