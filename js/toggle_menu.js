@@ -17,7 +17,7 @@ function toggleCP(){
 	
 	if(cp.style.opacity == 0.8){
 		cp.style.opacity = 0;
-		cp.style.right = "-260px"; // remove it from active screen space
+		cp.style.display = "none"; // remove it from active screen space
 		//change the style of 3 bars
 		cpBtn.style.border=" #AAA 1px solid";
 		//cpBtn.style.z-index=-"1";
@@ -28,6 +28,8 @@ function toggleCP(){
 		cp.style.right = "0px"; // return it to active screen space
 		cp.style.opacity = 0.8;
 		cp.style.borderRadius= "5px";
+		cp.style.display = "inline"; // remove it from active screen space
+
 
 		cpBtn.style.border="#06F 1px solid";
 		//cpBtn.style.z-index="1000";
@@ -59,7 +61,7 @@ $( "#listBtn" ).click(function() {
  
     function printMaps() {
       var body               = $('body');
-      var mapContainer       = $('#map-canvas');
+      var mapContainer       = $('#mapDiv');
       var mapContainerParent = mapContainer.parent();
       var printContainer     = $('<div>');
 
@@ -98,6 +100,44 @@ $(document).ready(function() {
         window.document.location = $(this).data("href");
     });
 });
+
+/* List/Map button - toggles the List and Map sections*/
+$( "#ListBtn-m" ).click(function() {
+	if($(this).text() == "List"){
+		$(this).text("Map");
+		$('#listOfBurns-m').css("display", "inline");
+		$('#mapSection').css("display", "none");
+	} else if ($(this).text() == "Map"){
+		$(this).text("List");
+		$('#listOfBurns-m').css("display", "none");
+		$('#mapSection').css("display", "inline");
+	}
+});
+
+/* filter button - mobile/tablets */
+$('#filterBtn-m').click(function(){
+	$('.popup-m').css("display", "block");
+});
+
+// When the user clicks on <span> (x), close the modal
+$('#closePopup-m').click(function(){
+	$('.popup-m').css("display", "none");
+});
+
+/* basemap button  */
+$('#basemapBtn').click(function(){
+	$('#BasemapToggle').toggle(); //css("display", "block");
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
