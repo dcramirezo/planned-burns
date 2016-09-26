@@ -11,19 +11,20 @@
 }
 /*Logo bar - First row - last col*/
 #LB-1-row-3-col{
-	padding-right: 0px;
+	//padding-right: 0px;
 }
 
 #shareBtn-logo-sm-xs{
 	width: 28px;
 	height:28px;
+	//padding-right:0px;
 }
 
 /* Share button - mobile/tablets*/
 .shareBtn{
 		float: right;
-		max-width: 40px;
-		max-height: 40px;
+		max-width: 42px;
+		max-height: 42px;
 		padding-top: 0px;		
 }
 
@@ -42,14 +43,7 @@
 	cursor: pointer;
 	transition: border 0.3s linear 0s;
 }
-/*
-#cpBtn:active{
-	border: #06F 1px solid;
-}
-#cpBtn:active div{
-	background: #06F;
-}
-*/
+
 #cpBtn > div{
 	width: 20px;
 	height: 4px;
@@ -60,7 +54,8 @@
 }
 #cp{
 	position: fixed;
-	right: -260;
+	display:none;
+	//right: -260;
 	top: 30px;
 	width: 200px;
 	height: 200px;
@@ -74,9 +69,51 @@
 
 /************************************ */
 
+#listOfBurns-m{
+	display:none;
+}
 
+/*Popup window for filter button ------------------------------------------ */
+/* The Modal (background) */
+.popup-m {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+/* Modal Content  */
+.popup-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+	border-radius: 5px;
+}
 
+/* The Close Button */
+.closePopup {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closePopup:hover,
+.closePopup:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*Popup window for filter button ------------------END------------------------ */
 
 
 
