@@ -121,7 +121,7 @@ $('#filterBtn-m').click(function(){
 
 // When the user clicks on <span> (x), close the modal
 $('#closePopup-m').click(function(){
-	$('.popup-m').css("display", "none");
+	$('.popup-m').css("display", "none"); 
 });
 
 /* basemap button  */
