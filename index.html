@@ -5,17 +5,18 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<!-- Step 1. Add CSS for Bootstrap, ArcGIS and Bootstrap-map-js -->
+	<!--  CSS for Bootstrap, ArcGIS and Bootstrap-map-js -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<!--<link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="//js.arcgis.com/3.13/esri/css/esri.css" type="text/css"> 
     <link rel="stylesheet" type="text/css" href="http://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">   
-	<link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">	<!-- This is for basemap -->
+	<link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">	<!-- This is for basemap -->
 
-
+	
 	<!--Include css files -->
 	<link rel="stylesheet" type="text/css" href="css/md-lg.css"> 
 	<link rel="stylesheet" type="text/css" href="css/sm-xs.css"> 
+	<link rel="stylesheet" type="text/css" href="css/LayersPopUp.css"> 
 	
   </head>
   <body>
@@ -48,13 +49,15 @@
 											    <!-- Modal content-->
 											    <div class="modal-content">
 													<div class="modal-header">
-														  <button type="button" class="close" data-dismiss="modal">&times;</button>
-														  <h4 class="modal-title">Filter your map!
+														  <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+															<div  style="float:right;"><div id="defaultMap"></div> </div>
+														    <h4 class="modal-title">Filter your map!
+																	<!--
 																	<a href="#" alt="Back to default filter.">
-																		<span class="glyphicon glyphicon-home" style="float:right; padding-right:20px;"></span>
-																	</a>
+																		<span class="glyphicon glyphicon-home" style="float:right; padding-right:20px;" id="defaultMap"></span>
+																	</a>-->
 															</h4>
-													</div>
+													</div>		
 													<!-- Popup window - (when filter button is clicked) - desktop/large screen-->
 													<div class="modal-body">
 
@@ -72,8 +75,14 @@
 																	<div id="panelBodyMap1" class="panel-collapse collapse">
 																		<div class="panel-body">
 																			<ul class="list-group">
-																				<li class="list-group-item"> <label><input type="checkbox" >Next 24 Hours </label></li>
-																				<li class="list-group-item"><label><input type="checkbox" >Next 10 Days</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="inProgress">In Progress</label> </li>
+																				<li class="list-group-item"> <label><input type="checkbox" id="nxt24">Next 24 Hours </label></li>
+																				<li class="list-group-item"><label><input type="checkbox" id="w10Days">Within 10 Days</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="patrol">Patrol</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="safe">Safe</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="burnBoundary">Burn Boundary</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="depiFireDes">Depi Fire Districts</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="publicSafetyZone">Public Safety Zone</label> </li>
 																			</ul>
 																		</div>
 																	</div>
@@ -105,12 +114,12 @@
 													</div>
 											    </div>
 								
-											</div>
+												</div>
 										</div>
       
-						    </div>
+								</div>
 							
-					</div>
+							</div>
 
 					
 			  </div>
@@ -327,9 +336,9 @@
 							
 						<div id="BasemapToggle">
 							<div style="padding-top:10px;"><input type="image" src="images/basemap-icons/streets.jpg" alt="Streets" width="34" height="28"  id="streets" > </div>
-							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/imagery.jpg" alt="Imagery" width="34" height="28" id="imagery"> </div>
+							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/light_gray.jpg" alt="Gray" width="34" height="28" id="gray"> </div>
 							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/national_geographic.jpg" alt="National Geographic" width="34" height="28" id="national_geographic"> </div>
-							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/topo.jpg" alt="Topo" width="34" height="28"  id="topo"> </div>
+							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/imagery.jpg" alt="Hybrid" width="34" height="28"  id="hybrid"> </div>
 						</div>
 						<div id="basemapDiv" >
 							<input type="image" src="images/gis_layers.png" alt="Submit" width="34" height="28" id="basemapBtn">
@@ -417,7 +426,7 @@
     <script src="//js.arcgis.com/3.13compact"></script>
 	<script type="text/javascript" src="js/map.js"> </script>
 	<!-- For Basemap -->
-	<script src="//js.arcgis.com/3.17/"></script>
+	<script src="//js.arcgis.com/3.18/"></script> 
 
 	
     <!-- jQuery (for Bootstrap's JavaScript plugins) -->
