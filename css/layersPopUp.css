@@ -1,0 +1,18 @@
+/* ------------------------------ This is for styling popup window which is appeared on the map */
+      /* Change color of icons to match bar chart and selection symbol */
+       .esriPopup.dark div.titleButton, 
+      .esriPopup.dark div.titlePane .title,
+      .esriPopup.dark div.actionsPane .action {
+        color: #A4CE67;
+		//border: 5px solid red;
+      }
+      /* Additional customizations */
+      .esriPopup.dark .esriPopupWrapper {
+        border: none;
+      }
+      .esriPopup .contentPane {
+        text-align: center;
+      }
+      .esriViewPopup .gallery {
+        margin: 0 auto;
+      }
