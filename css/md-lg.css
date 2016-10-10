@@ -12,8 +12,8 @@ html, body, .container, .tab-content, .tab-pane  {
   
 /* Side bar*/
 #sideBar{
-	//padding-top: 20px; 
-	padding-left: 5px;" 
+	padding-top: 20px; 
+	/*padding-left: 5px;*/
 }
 
 /*DELWP logo - desktop/large screens*/
@@ -23,12 +23,21 @@ html, body, .container, .tab-content, .tab-pane  {
 
 /*DELWP logo - desktop/large screens*/
 #DELWP-logo-md-lg{
-	width: 250px;
-	height: 50px;
+	height: 40px;
+}
+
+#map-title{
+	color: #fff;
+	margin-top: 15px;
+    margin-left: 20px;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
 }
 /* List and Filter buttons*/
 #ListFilterBtns{
-	padding-top:10px;
+	padding-top: 7px;
+
 }
 
 /*Icons of the logo bar -  desktop/large screens*/
@@ -40,13 +49,16 @@ html, body, .container, .tab-content, .tab-pane  {
 
 /* Logo bar for Desktops/large screens*/
 #logoBar{
-	padding-right:0px;
-	height: 50px;
+	padding: 8px 2px;
+    height: 70px;
+    background-color: #005135;
+    margin-bottom: 3px;
+    border-bottom: #008348 6px solid;
 }
 
 /*search bar - Desktops/large screens*/
 #searchBar{
-	padding-top: 10px;
+	padding-top: 7px;
 	text-align: center;
 }
 
@@ -97,12 +109,29 @@ html, body, .container, .tab-content, .tab-pane  {
 	border-style: solid;
 }
 
+.btn-toolbar>.btn-group {
+	margin-top: 5px;
+	float: right;
+}
 
+#toolbar-btns {
+	padding-top: 2px;
+}
 
+#social-media-share {
+	padding: 3px 8px;
+}
 
+tr th {
+    background-color: #008145;
+    color: #ffffff;
+    text-align: center;
+}
 
-
-
+.panel-heading {
+	font-weight: bold;
+	font-size: 18px;
+}
 
 
 

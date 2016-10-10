@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="//js.arcgis.com/3.13/esri/css/esri.css" type="text/css"> 
     <link rel="stylesheet" type="text/css" href="http://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">   
 	<link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">	<!-- This is for basemap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 
-	
 	<!--Include css files -->
 	<link rel="stylesheet" type="text/css" href="css/md-lg.css"> 
 	<link rel="stylesheet" type="text/css" href="css/sm-xs.css"> 
@@ -29,21 +30,23 @@
 			  
 			  <div class="col-md-3 col-lg-3" id="DELWPLogoDiv-md-lg">
 						<!-- DELWP logo desktop/large screens-->
-					<div id="DELWPlogo-md-lg-div" >
-						 <a href="#"><img  id="DELWP-logo-md-lg"  src="images/icons/delwplogo.png" ></a> 
-					</div>
+					
+						 <a href="#" style="float: left;"><img  id="DELWP-logo-md-lg"  src="images/forestfiremanagementlogo.png" ></a> 
+						 <h4 id="map-title">Planned Burns</h4>
+					
+
 			  </div>
-			  <div class="col-md-3 col-lg-3" id="mapFilter">
+			  <div class="col-md-2 col-lg-2" id="mapFilter">
 						<!-- List and Filter buttons - desktop/large screens-->
-					<div class="btn-group btn-group-justified" role="group" id="ListFilterBtns">
+					<div class="btn-group" role="group" id="ListFilterBtns">
 						  <!-- Map Button  - desktop/large screens -->
-						  <div class="btn-group" role="group"> 
-								<button type="button" value="List" class="btn btn-default " id="listBtn" >List</button>
-						  </div>
+						   
+							<button type="button" value="List" class="btn btn-default " id="listBtn" >List</button>
+						  
 						    <!-- Filter Button  - desktop/large screens -->
 						    <div class="btn-group" role="group"> 
 								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" id="filterSec">Filter</button>
-									  <!-- Modal -->
+									 <!-- Modal -->
 									    <div class="modal fade" id="myModal" role="dialog">
 											<div class="modal-dialog">
 											    <!-- Modal content-->
@@ -62,7 +65,27 @@
 													<div class="modal-body">
 
 															<div id="accordion"  class="panel-group">
-															
+																<div class="panel panel-default">
+																	<div class="panel-heading">
+																		<h4 class="panel-title">
+																			<a href="#panelBodyMap3"  data-toggle="collapse" data-parent="#accordion">
+																				<span class="glyphicon glyphicon-menu-down"></span>
+																				Past Burns 
+																			</a>
+																		</h4>
+																	</div>
+																	<div id="panelBodyMap3" class="panel-collapse collapse">
+																		<div class="panel-body">
+																			<ul class="list-group">
+																				<li class="list-group-item">
+																				<div id="checkbox"> <input id="past-burns" type="checkbox" value=""> <label for="past-burns">Past Burns by DELWP</label></div>
+																				</li>
+																				<li class="list-group-item"><label><input type="checkbox" value=""> Bushfire history</label> </li>
+																				
+																			</ul>
+																		</div>
+																	</div>
+																</div>
 																<div class="panel panel-default">
 																	<div class="panel-heading">
 																		<h4 class="panel-title">
@@ -75,14 +98,14 @@
 																	<div id="panelBodyMap1" class="panel-collapse collapse">
 																		<div class="panel-body">
 																			<ul class="list-group">
-																				<li class="list-group-item"><label><input type="checkbox" id="inProgress">In Progress</label> </li>
-																				<li class="list-group-item"> <label><input type="checkbox" id="nxt24">Next 24 Hours </label></li>
-																				<li class="list-group-item"><label><input type="checkbox" id="w10Days">Within 10 Days</label> </li>
-																				<li class="list-group-item"><label><input type="checkbox" id="patrol">Patrol</label> </li>
-																				<li class="list-group-item"><label><input type="checkbox" id="safe">Safe</label> </li>
-																				<li class="list-group-item"><label><input type="checkbox" id="burnBoundary">Burn Boundary</label> </li>
-																				<li class="list-group-item"><label><input type="checkbox" id="depiFireDes">Depi Fire Districts</label> </li>
-																				<li class="list-group-item"><label><input type="checkbox" id="publicSafetyZone">Public Safety Zone</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="inProgress"> In Progress</label> </li>
+																				<li class="list-group-item"> <label><input type="checkbox" id="nxt24"> Next 24 Hours </label></li>
+																				<li class="list-group-item"><label><input type="checkbox" id="w10Days"> Within 10 Days</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="patrol"> Patrol</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="safe"> Safe</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="burnBoundary"> Burn Boundary</label> </li>
+																				<li class="list-group-item"><label><input type="checkbox" id="depiFireDes"> Depi Fire Districts</label> </li>
+																				<!--li class="list-group-item"><label><input type="checkbox" id="publicSafetyZone">Public Safety Zone</label> </li-->
 																			</ul>
 																		</div>
 																	</div>
@@ -100,8 +123,10 @@
 																	<div id="panelBodyMap2" class="panel-collapse collapse">
 																		<div class="panel-body">
 																			<ul class="list-group">
-																				<li class="list-group-item"> <label><input type="checkbox" value="">Option 1</label></li>
-																				<li class="list-group-item"><label><input type="checkbox" value="">Option 2</label> </li>
+																				<li class="list-group-item"> <label><input type="checkbox" value=""> 2016 - 2017</label></li>
+																				<li class="list-group-item"><label><input type="checkbox" value=""> 2017 - 2018</label> </li>
+																				<li class="list-group-item"> <label><input type="checkbox" value=""> 2018 - 2019</label></li>
+																				
 																			</ul>
 																		</div>
 																	</div>
@@ -114,17 +139,14 @@
 													</div>
 											    </div>
 								
-												</div>
+											</div>
 										</div>
       
-								</div>
-							
 							</div>
-
-					
+					</div>
 			  </div>
 			  <!-- Search field - desktop/large screens -->
-			  <div class="col-md-3 col-lg-3">
+			  <div class="col-md-4 col-lg-4">
 					<div id="searchBar">
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
@@ -136,59 +158,62 @@
 			  </div>
 			  
 			  <div class="col-md-3 col-lg-3">
-				    <div class="row">
-						<div class="col-md-3 col-lg-3 ">
-								<div  class="Licon"> 
-									  <!-- Help button -desktop/large screen -->
-									  <button class="btn btn-default" type="button" id="export-md-lgBtn>
-											<a href="#"><img  id="export-md-lg"  src="images/icons/export.png" class="img-responsive"></a>	
-									  </button>
-								</div>
+				    <div class="btn-toolbar" role="toolbar" id="toolbar-btns">
+						<div class="btn-group" role="group">
+							<button class="btn btn-default" type="button" id="export-md-lgBtn">
+								<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+
+											<!--a href="#"><img  id="export-md-lg"  src="images/icons/export.png" class="img-responsive"></a-->	
+							</button>
+								<!--/div>
 						</div>
 
 						<div class="col-md-3 col-lg-3">
 								<div  class="Licon"> 
 									<!-- Print button -desktop/large screen -->
-									  <button class="btn btn-default" type="button" onclick="printMaps()" id="print-md-lg">
-										<a href="#"><img  id="print-md-lg"  src="images/icons/print.png" class="img-responsive" ></a>	
-									  </button>
-								</div>
+							<button class="btn btn-default" type="button" onclick="printMaps()" id="print-md-lg">
+								<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+										<!--a href="#"><img  id="print-md-lg"  src="images/icons/print.png" class="img-responsive" ></a-->	
+							</button>
+								<!--/div>
 						</div>
 
 						<div class="col-md-3 col-lg-3">
 							<!-- Share button -desktop/large screen -->
-							<div id="shareBtn-md-lg"class="dropdown Licon">
+							<div id="shareBtn-md-lg" class="btn-group dropdown" role="group">
 								  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-										<img  src="images/icons/share.png"  class="img-responsive">
+								  		<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+										<!--img  src="images/icons/share.png"  class="img-responsive"-->
 								  </button>
 								  <ul class="dropdown-menu dropdown-menu-right list-inline">
 										<li class="list-inline-item">
-											<a href="#">
-												<img  src="images/icons/facebook-logo.png"  class="img-responsive">
+											<a id="social-media-share" href="#">
+												<img  src="images/facebook.png"  class="img-responsive">
 											</a>
 										</li>
 										<li class="list-inline-item">
-											<a href="#">
-												<img  src="images/icons/twitter-logo.png"  class="img-responsive">
+											<a id="social-media-share" href="#">
+												<img  src="images/twitter.png"  class="img-responsive">
 											</a>
 											</li>
 										<li class="list-inline-item">
-											<a href="#">
-											<img  src="images/icons/google-plus-logo.png"  class="img-responsive">
+											<a  id="social-media-share"href="#">
+											<img  src="images/googlePlus.png"  class="img-responsive">
 											</a>
 										</li>
 								  </ul>
 							</div>							
 							
-						</div>
+						<!--/div>
 
 						<div class="col-md-3 col-lg-3">
 							<div  class="Licon"> 
 								  <!-- Help button -desktop/large screen -->
-								  <button class="btn btn-default" type="button">
-									<a href="#"><img  id="qmark-md-lg"  src="images/icons/qmark.png" class="img-responsive"></a>	
-								  </button>
-							</div>
+							<button class="btn btn-default" type="button">
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+									<!--a href="#"><img  id="qmark-md-lg"  src="images/icons/qmark.png" class="img-responsive"></a-->	
+							</button>
+							<!--/div-->
 						</div>
 					</div>
 			  </div>		
@@ -200,7 +225,36 @@
 			<div class="col-md-3 hidden-xs hidden-sm" id="sideBar"> 
 				<div id="sidebar-wrapper" >
 						<!-- List of burns-->
-						<div class="list-group">
+						
+						<div class="panel panel-default">
+  							<!-- Default panel contents -->
+ 							 <div class="panel-heading">Current Burns</div>
+
+							
+									
+							  <table class="table" >
+								<thead>
+								  <tr>
+									<th>STATUS</th>
+									<th>REGION</th>
+									<th>NAME</th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr>
+									<td><img src="images/icons/export.png" style="width:20px; float:left;"></td>
+									<td>GIPPSLAND</td>
+									<td>BUCHAN CAVES RESERVE HEAP (2BNN0107)</td>
+								  </tr>
+								  <tr>
+									<td><img src="images/icons/export.png" style="width:20px; float:left;"></td>
+									<td>PORT PHILLIP</td>
+									<td>GREENVALE VMDT TRIAL (VMDT-002)</td>
+								  </tr>
+								 </tbody>
+							  </table>
+						 </div>
+						<!--div class="list-group">
 								<li class="list-group-item">
 									<h4 class="list-group-item-heading">Current Burns</h4>
 								</li>
@@ -221,7 +275,7 @@
 									<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
 									Third item<span class="badge">i</span>
 								</a>
-						</div>				
+						</div-->				
 					
 				</div>
 			</div>
@@ -303,10 +357,34 @@
 						<div id="listOfBurns-m">
 
 							<!-- List of burns-->
-							<div class="list-group">
+							<h4 class="list-group-item-heading">Current Burns</h4>
+							
+									
+							  <table class="table table-striped" >
+								<thead>
+								  <tr>
+									<th><h3>Status</h3></th>
+									<th><h3>Region</h3></th>
+									<th><h3>Name</h3></th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr>
+									<td><img src="images/icons/export.png" style="width:20px; float:left;"></td>
+									<td>GIPPSLAND</td>
+									<td>BUCHAN CAVES RESERVE HEAP (2BNN0107)</td>
+								  </tr>
+								  <tr>
+									<td><img src="images/icons/export.png" style="width:20px; float:left;"></td>
+									<td>PORT PHILLIP</td>
+									<td>GREENVALE VMDT TRIAL (VMDT-002)</td>
+								  </tr>
+								 </tbody>
+							  </table>
+							<!--div class="list-group">
 									<li class="list-group-item">
 										<h4 class="list-group-item-heading">Current Burns</h4>
-									</li>
+									</li>				
 									<a href="#" class="list-group-item">
 										<img src="images/icons/export.png" style="width:20px; float:left;">
 										<span class="badge">i</span>
@@ -324,7 +402,7 @@
 										<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
 										Third item<span class="badge">i</span>
 									</a>
-							</div>				
+							</div-->				
 
 
 						</div>
@@ -354,9 +432,10 @@
 			<div class="row" style="display:none;" id="listOfBurns">
 
 				<!-- List of Burns Section-->
-				<div  >
-
-						<div class="container-fluid">
+				
+				<div align="center">
+					<iframe id="summary" src="http://firewebext.fem.vic.gov.au/BurnsToday/burnssummary1_V2.htm" style="width: 95%; height: 700px; background: none; border: none;"></iframe>
+						<!--div class="container-fluid">
 							  <table class="table table-striped" >
 								<thead>
 								  <tr>
@@ -413,14 +492,14 @@
 								  </tr>
 								</tbody>
 							  </table>
-						</div>					
+						</div-->					
 						
 				</div>
 				
 			</div>
 			
 	</div>
-
+</div>
     <!--  JS to Load the responsive map -->
 	<script type="text/javascript" src="js/responsive_map.js"> </script>
     <script src="//js.arcgis.com/3.13compact"></script>
@@ -429,15 +508,27 @@
 	<script src="//js.arcgis.com/3.18/"></script> 
 
 	
-    <!-- jQuery (for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	 	 
+    <!-- jQuery (for Bootstrap's JavaScript plugins) >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>	 
     <!-- Include all  plugins or individual files as needed -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	
 	<!-- Include JS files -->
 	<script type="text/javascript" src="js/toggle_menu.js"> </script>
-	
+	<script>
+	$("#summary").contents().find( ".StdTextEmph" ).css( "background-color", "#BADA55" );
+	/*$(document).ready(function() {
+		var summary = document.getElementById('summary').contentDocument;
+		
+		summary.load(function() {
+			var span = summary.document.getElementsByClassName('StdTextEmph');
+			span.style.display='none';
+			//contents().find('.StdTextEmph').css("display", "none");
+		});
+
+	});
+	</script>
   </body>
 </html>
 
