@@ -1,28 +1,30 @@
 
 require([
 	"esri/map", 
-	"esri/dijit/BasemapGallery",
-	"esri/layers/FeatureLayer",
-	"esri/dijit/HomeButton",
-	 
+	
 	"esri/dijit/Popup", 
 	"esri/dijit/PopupTemplate",
+	
+	"esri/dijit/BasemapGallery",
+	"esri/layers/FeatureLayer",
 	"esri/symbols/SimpleFillSymbol", 
 	"esri/Color",
 	"dojo/dom-class", 
 	"dojo/dom-construct", 
-    "dojox/charting/Chart", 
-	"dojox/charting/themes/Dollar",
-
-	 
-	 
+	"esri/dijit/HomeButton",
+	"esri/renderers/SimpleRenderer",
+	"esri/symbols/PictureMarkerSymbol" ,
+	
+	"esri/dijit/Search",
+	
 	"dojo/on", 
 	"dojo/dom", 
 	"dojo/domReady!"
 	], 
-	function(Map, BasemapGallery, FeatureLayer,HomeButton, Popup, PopupTemplate, 
-	              SimpleFillSymbol, Color, domClass, domConstruct, Chart, theme, on, dom) {
-					  
+	function(Map, Popup, PopupTemplate, BasemapGallery, FeatureLayer, SimpleFillSymbol, 
+			Color, domClass, domConstruct, HomeButton, SimpleRenderer, 
+			PictureMarkerSymbol, Search, on, dom ) {
+
         //The popup is the default info window so you only need to create the popup and 
         //assign it to the map if you want to change default properties. Here we are 
         //noting that the specified title content should display in the header bar 
@@ -34,43 +36,40 @@ require([
         }, domConstruct.create("div"));
         //Add the dark theme which is customized further in the <style> tag at the top of this page
         domClass.add(popup.domNode, "dark");
-					  
-					  
+
+        var template = new PopupTemplate({
+          title: "Safe Areas 2013",
+          description: 
+		  "Status: {BURN_STATUS} <br /> Burn name: {BURN_NAME}"
+        }); 
+		
+		/* Set markers for different layers */
+		
+		/* Safe icon marker*/
+		var Safemarker = new PictureMarkerSymbol('http://adkasel.com/map-test-esri/images/icons/safe.png', 30, 30);
+		var SafeRenderer = new SimpleRenderer(Safemarker);
+		
+		/* Next 10 days icon marker*/
+		var nxt10Marker = new PictureMarkerSymbol('http://adkasel.com/map-test-esri/images/icons/10day.png', 30, 30);
+		var nxt10Renderer = new SimpleRenderer(nxt10Marker);
+		
+	
 		// Create map
 		var map = new Map("mapDiv",{ 
-		  basemap: "hybrid",
+		  basemap: "gray",
 		  center: [145.45,-37],
 		  zoom: 7,
 		  logo: false,
 		  infoWindow: popup
 		});
-		
-		
-        var template = new PopupTemplate({
-          title: "Safe Areas 2013",
-          description: "Status: {BURN_STATUS} <br /> Burn name: {BURN_NAME}",
-		  fieldInfos: [{ //define field infos so we can specify an alias
-            fieldName: "Number_Ent",
-            label: "Entrants"
-          },{
-            fieldName: "Number_Sta",
-            label: "Starters"
-          },{
-            fieldName: "Number_Fin",
-            label: "Finishers"
-          }],
-          mediaInfos:[{ //define the bar chart
-            caption: "",
-            type:"barchart",
-            value:{
-              theme: "Dollar",
-              fields:["Number_Ent","Number_Sta","Number_Fin"]
-            }
-          }]
-        });
-		
-		
 
+		/* Search option*/
+        var search = new Search({
+           map: map,
+           
+        }, "srch-term");
+        search.startup();		
+		
 		var home = new HomeButton({
 			map: map
 		  }, "defaultMap");
@@ -113,17 +112,22 @@ require([
 		var nxt24Layer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/2", {visible:false});
 		map.addLayer(nxt24Layer);
 
-		var within10DaysLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/3", {visible:false});
+		var within10DaysLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/3", {
+		outFields: ["*"],
+		infoTemplate: template,
+		visible:false});
+		
+		within10DaysLayer.setRenderer(nxt10Renderer); 
 		map.addLayer(within10DaysLayer);
 		
 		var patrolLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/4", {visible:false});
 		map.addLayer(patrolLayer);
 		
 		var safeLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/5", {
-			//mode: FeatureLayer.MODE_ONDEMAND,
 			outFields: ["*"],
 			infoTemplate: template,
 			visible:true} );
+		safeLayer.setRenderer(SafeRenderer);
 		map.addLayer(safeLayer);
 
 		var burnBoundaryLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/6", {visible:false});
@@ -198,12 +202,9 @@ require([
 				 publicSafetyZoneLayer.hide();
 			}
 		});
-		
-		$("#defaultMap").on("click", function(){
-			//alert("default button clicked!");
-			map.refresh();
-		});
 
+		
+		
     });
 
 // national-geographic, hybrid, topo, gray, dark-gray, oceans, osm
