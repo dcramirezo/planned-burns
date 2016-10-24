@@ -44,14 +44,16 @@ function toggleCP(){
 $( "#listBtn" ).click(function() {
 	if($(this).text() == "List"){
 		$(this).text("Map");
-		$('#listOfBurns').css("display", "inline");
-		$('#mapSection').css("display", "none");
-		$('#sideBar').css("display", "none");
+		$('#listOfBurns').removeClass("hidden");
+		$('#mapSection').addClass("hidden");
+		$('#sideBar').addClass("hidden");
+
 	} else if ($(this).text() == "Map"){
 		$(this).text("List");
-		$('#listOfBurns').css("display", "none");
-		$('#mapSection').css("display", "inline");
-		$('#sideBar').css("display", "inline");
+		$('#listOfBurns').addClass("hidden");
+		$('#mapSection').removeClass("hidden");
+		$('#sideBar').removeClass("hidden");
+	
 	}
 });
 
@@ -102,15 +104,15 @@ $(document).ready(function() {
 });
 
 /* List/Map button - toggles the List and Map sections*/
-$( "#ListBtn-m" ).click(function() {
+$( "#listBtn-m" ).click(function() {
 	if($(this).text() == "List"){
 		$(this).text("Map");
-		$('#listOfBurns-m').css("display", "inline");
-		$('#mapSection').css("display", "none");
+		$('#listOfBurns').removeClass("hidden");
+		$('#mapSection').addClass("hidden");
 	} else if ($(this).text() == "Map"){
 		$(this).text("List");
-		$('#listOfBurns-m').css("display", "none");
-		$('#mapSection').css("display", "inline");
+		$('#listOfBurns').addClass("hidden");
+		$('#mapSection').removeClass("hidden");
 	}
 });
 
@@ -121,7 +123,7 @@ $('#filterBtn-m').click(function(){
 
 // When the user clicks on <span> (x), close the modal
 $('#closePopup-m').click(function(){
-	$('.popup-m').css("display", "none"); 
+	$('.popup-m').css("display", "none");
 });
 
 /* basemap button  */

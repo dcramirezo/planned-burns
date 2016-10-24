@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,800');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800');
+
+body, div, span, a, p, table, th, tr, td, tbody {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Lato', sans-serif;
+}
+
+#logoBar{
+	padding: 8px 2px;
+    height: 70px;
+    background-color: #005135;
+    margin-bottom: 3px;
+    border-color: #005135;
+    border-bottom: #008348 6px solid;
+    border-radius: 0px;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+}
+#DELWP-logo{
+	height: 40px;
+	margin-right: 10px;
+}
+
+#searchBar{
+	padding-top: 7px;
+	text-align: center;
+}
+
+
+.navbar > .container-fluid .navbar-brand {
+	    margin-top: -9px;
+}
+.navbar-brand > img {
+    display: inline;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #ececec;
+}
+
+#bottom-bar {
+	background-color: #005135;
+	display: inline-flex;
+	
+}
+
+#bottom-bar > .nav > li, #bottom-bar > .nav > li > a {
+	display: inline-flex;
+}
