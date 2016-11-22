@@ -170,7 +170,11 @@ tr th {
 	float:right;
 }
 #DELWPfireDis{
-	margin: 0px 0px 20px 0px;
+	margin: 0px 0px 5px 0px;
+}
+
+#last5yearsFH{
+	margin: 0px 0px 10px 0px;
 }
 
 /* Spinning Wheel div */

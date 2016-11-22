@@ -160,11 +160,18 @@ require([
 		var publicSafetyZoneLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/8", {visible:false});
 		map.addLayer(publicSafetyZoneLayer);
 		
+		// Fire History last 5 years layer
+		var last5yearsFireHistoryLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/9", {visible:false});
+		map.addLayer(last5yearsFireHistoryLayer);
+		
+		
 		// Turn all layers on/off - Select all button
 		$("#selectAll").on("click", function(){
 			if (allLayersOnOff == 0){
 				// checkboxes on
 				
+				
+				$("#last5yearsFireHistory").trigger("click");
 				$( "#past-burns" ).trigger("click");
 				$( "#bushfire" ).trigger("click");
 				
@@ -183,6 +190,7 @@ require([
 				//past-burnsLayer.show();
 				//bushfireLayer.show();
 				
+				last5yearsFireHistoryLayer.show();
 				inProgressLayer.show();
 				nxt24Layer.show();
 				within10DaysLayer.show();
@@ -197,6 +205,7 @@ require([
 				allLayersOnOff = 1;
 			} else if (allLayersOnOff == 1){
 				// checkboxes on
+				$("#last5yearsFireHistory").trigger("click");
 				$("#past-burns").trigger("click");
 				$( "#bushfire" ).trigger("click");
 				
@@ -215,6 +224,7 @@ require([
 				//past-burnsLayer.hide();
 				//bushfireLayer.hide();
 				
+				last5yearsFireHistoryLayer.hide();
 				inProgressLayer.hide();
 				nxt24Layer.hide();
 				within10DaysLayer.hide();
@@ -233,6 +243,14 @@ require([
 
 		
 		// Show/hide layers when checkboxes are clicked
+		$("#last5yearsFireHistory").on("click", function(){
+			if(last5yearsFireHistory.checked) {
+				last5yearsFireHistoryLayer.show();
+			} else {
+				 inProgressLayerLayer.hide();
+			}
+		});
+		
 		$("#inProgress").on("click", function(){
 			if(inProgress.checked) {
 				inProgressLayer.show();
