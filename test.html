@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <script src="http://code.jquery.com/jquery.js"></script>
+
+  <script type="text/javascript" src="js/html2canvas.js"> </script>
+  <script type="text/javascript" src="js/html2canvas.min.js"> </script>
+
+  <title>Data-driven continuous size - 4.1</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.1/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/renderers/SimpleRenderer",
+
+	  //"esri/layers/MapImage",
+	  
+	  "esri/symbols/PictureMarkerSymbol",
+      "esri/widgets/Legend",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, FeatureLayer, SimpleRenderer, 
+	 // MapImage, 
+	  PictureMarkerSymbol, Legend
+    ) {
+
+	var defaultSym = new PictureMarkerSymbol({
+	  url: "http://img3.wikia.nocookie.net/__cb20140427224234/caramelangel714/images/7/72/Location_Icon.png",
+	  width: "30px",
+	  height: "30px"
+	});	
+	/*  
+	var mi = new MapImage({
+		'extent': { 'xmin': -8864908, 'ymin': 3885443, 'xmax': -8762763, 'ymax': 3976997, 'spatialReference': { 'wkid': 3857 }},
+		'href': imageURL
+	  });
+	*/
+
+  // limit visualization to southeast U.S. counties
+/*     
+	 var defExp = ["STATE = 'LA'", "STATE = 'AL'", "STATE = 'AR'",
+        "STATE = 'MS'", "STATE = 'TN'", "STATE = 'GA'",
+        "STATE = 'FL'", "STATE = 'SC'", "STATE = 'NC'",
+        "STATE = 'VA'", "STATE = 'KY'", "STATE = 'WV'"
+      ];
+	  */
+
+      /*****************************************************************
+       * Set a size visual variable on the renderer. Size visual variables
+       * create continuous ramps that map low data values to small icons
+       * and high data values to large icons. Features
+       * with data values in between the min and max data values are assigned
+       * a size proportionally between the min and max sizes specified in
+       * `minSize` and `maxSize` or `stops`.
+       *****************************************************************/
+
+      var renderer = new SimpleRenderer({
+        symbol: defaultSym,
+        label: "population in poverty by county"
+      });
+/*	  
+	  var renderer = new PictureMarkerSymbol({
+		  url: "https://webapps-cdn.esri.com/Apps/MegaMenu/img/logo.jpg",
+		  width: "8px",
+		  height: "8px"
+		});
+		
+		var renderer = SimpleMarkerSymbol({
+		  color: "red",
+		  outline: {
+			color: [128, 128, 128, 0.5],
+			width: "0.5px"
+		  }
+		});		
+*/
+      var povLyr = new FeatureLayer({
+        url: "http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/5",
+        renderer: renderer,
+        outFields: ["*"],
+        popupTemplate: {
+          title: "Safe Areas 2013",
+          content: "Status: {BURN_STATUS} <br /> Burn name: {BURN_NAME}",
+        }//,
+        //definitionExpression: defExp.join(" OR ") // only display counties from states in defExp
+      });
+
+      var map = new Map({
+        basemap: "dark-gray",
+        layers: [povLyr]
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [145.45,-37],
+        zoom: 7
+      });
+
+      /******************************************************************
+       *
+       * Add layers to layerInfos on the legend
+       *
+       ******************************************************************/
+/*
+      var legend = new Legend({
+        view: view,
+        layerInfos: [
+        {
+          layer: povLyr,
+          title: "Poverty in the southeast U.S."
+        }]
+      });
+
+      view.ui.add(legend, "top-right");
+*/
+    });
+  </script>
+</head>
+<body>
+
+  <div id="viewDiv"></div>
+  <button onclick="socialShare('facebook');" id="btnSave">Share</button>
+  
+    <script>
+	function socialShare(SM){
+		//alert("Allah will help you");	
+		var shareurl;
+		
+		switch(SM){
+			case 'facebook':
+				shareurl='https://www.facebook.com/sharer/sharer.php?u=http://plusquotes.com/images/quotes-img/Images-of-flowers-5.jpg';
+				break;
+			case 'twitter':
+				shareurl='https://www.facebook.com/sharer/sharer.php?u=http://plusquotes.com/images/quotes-img/Images-of-flowers-5.jpg';
+				break;
+			default: 
+				shareurl='';
+		}
+		window.open(shareurl,'','menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=600,width=600');
+		
+	}	/*
+	$("#btnSave").click(function() {
+		//alert("Allah will forgive you enshallah")
+		html2canvas($("#viewDiv"), {
+			useCORS: true,
+            allowTaint:true,
+			onrendered: function(canvas) {
+				theCanvas = canvas;
+				document.body.appendChild(canvas);
+
+				canvas.toBlob(function(blob) {
+					saveAs(blob, "Dashboard.jpg"); 
+				});
+			}
+		});
+	});
+	*/
+  </script> 
+
+</body>
+
+</html>

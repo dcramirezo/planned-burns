@@ -1,4 +1,10 @@
-
+/*DELWP logo inner div - mobile and tablets*/
+#DELWP-logo-sm-xs{
+	padding-top:1px;
+	width: 100px;
+	height:28px;
+	border-radius: 2px;
+}
 /*Logo bar - First row - First col*/
 #LB-1-row-1-col{
 	padding-left: 0px;
@@ -17,8 +23,8 @@
 /* Share button - mobile/tablets*/
 .shareBtn{
 		float: right;
-		/*max-width: 42px;
-		max-height: 42px;*/
+		max-width: 42px;
+		max-height: 42px;
 		padding-top: 0px;		
 }
 

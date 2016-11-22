@@ -10,37 +10,39 @@ body, div, span, a, p, table, th, tr, td, tbody {
 h1, h2, h3, h4, h5 {
 	font-family: 'Lato', sans-serif;
 }
-    /* Set the responsive map size here */
+
+/* Set the responsive map size here */
 #mapDiv {
-      /*   min-height: 650px; 
-       max-height: 860px; */
-
-    width: 100%;
-    height: 800px;
-
+	width:100%;
+	height:800px; 
 }
- 
- .btn-link {
-    font-weight: 400;
-    color: #fff;
-   } 
 
-   .btn-link:active, .btn-link:focus, .btn-link:hover {
-   		color: #ececec;
-   }
+.btn-link {
+	font-weight: 400;
+	color: #fff;
+} 
+
+.btn-link:active, .btn-link:focus, .btn-link:hover {
+	color: #ececec;
+}
    
+
+  
 /* Side bar*/
 #sideBar{
-	padding-top: 20px; 
-	/*padding-left: 5px;*/
+	//padding-top: 20px; 
+	//padding-left: 5px;" 
 }
 
-
-
 /*DELWP logo - desktop/large screens*/
+#DELWPLogoDiv{
+	//margin-top: 10px;
+}
+
+/* <img> of the DELWP logo - desktop/large screens*/
 #DELWP-logo{
-	height: 36px;
 	float: left;
+	height: 36px;
 }
 
 #map-title{
@@ -51,10 +53,10 @@ h1, h2, h3, h4, h5 {
     font-weight: bold;
     font-size: 14px;
 }
+
 /* List and Filter buttons*/
 #ListFilterBtns{
-	padding-top: 7px;
-
+	padding-top:7px;
 }
 
 /*Icons of the logo bar -  desktop/large screens*/
@@ -79,7 +81,9 @@ h1, h2, h3, h4, h5 {
 	text-align: center;
 }
 
-
+#listOfBurns{
+	display: none;
+}
 /* Change the cursor of the tables' row to pointer*/
 .clickable-row{
 	cursor:pointer;
@@ -90,27 +94,30 @@ h1, h2, h3, h4, h5 {
 	  display: none;
 	  text-align: center;
 	  position: absolute;
-	  top: 120px;
-    right: 30px;
+	  //top: 120px;
+	  top: 140px;
+	  right: 30px;
 	  width: 48px;
 	  height:162px;
 	  overflow-y:auto;
 	  background-color: #008348;
 	  opacity:1;
-	  border-radius: 2px;
+	  border-radius: 4px;
 	  z-index: 100;
 }
 
 /*Div container of the Basemap button */
 #basemapDiv{
 	position: absolute;
-	top: 80px; 
-	right: 33px; 
+	/*top: 80px; */ 
+	top: 100px;
+	right: 33px;  
 	background-color: #008348;
     border-radius: 5px;
     z-index: 100;
     padding: 5px 4px 0px;
 }
+
 /*Basemap Button*/
 #basemapBtn{
 	opacity:1;
@@ -124,34 +131,30 @@ h1, h2, h3, h4, h5 {
 	border-style: solid;
 }
 
-/*Styles added by Diana */
+/* Diana settings */
 
 .btn-toolbar>.btn-group {
 	margin-top: 5px;
-	float: right;
 }
 
 #toolbar-btns {
 	padding-top: 2px;
+	float: right;
 }
 
 #social-media-share {
 	padding: 3px 8px;
 }
-
+/*
 tr th {
     background-color: #008145;
     color: #ffffff;
     text-align: center;
 }
-
+*/
 .panel-heading {
 	font-weight: bold;
 	font-size: 18px;
-}
-
-.hidden {
-	display: none;
 }
 
 .modal-header {
@@ -159,107 +162,127 @@ tr th {
     background-color: #008348;
 }
 
+#selectAll_defMap{
+	margin-top:7px;
+}
+
+#defaultMap{
+	float:right;
+}
+#DELWPfireDis{
+	margin: 0px 0px 20px 0px;
+}
+
+/* Spinning Wheel div */
+#spinningWheel{
+	//display: none;
+	//position: absolute;
+	//top: 50%;
+	//left: 50%;
+}
+
+
 @media (min-width: 993px) and (max-width: 1024px) {
 /* Logo bar for small screens*/
 
-#map-title{
-	color: #fff;
-	margin-top: 5px;
-    margin-left: 20px;
-    float: left;
-    font-weight: bold;
-    font-size: 14px;
-}
-/*DELWP logo - desktop/large screens*/
-#DELWPLogoDiv{
-	    margin-top: 10px;
-}
+	#map-title{
+		color: #fff;
+		margin-top: 5px;
+		margin-left: 20px;
+		float: left;
+		font-weight: bold;
+		//font-size: 14px;
+		font-size: 12px;
+	}
+	/*DELWP logo - desktop/large screens*/
+	#DELWPLogoDiv{
+			margin-top: 10px;
+	}
 
-#DELWP-logo{
-	
-	float: left;
-	height:25px;
-	
-}
+	#DELWP-logo{
+		
+		float: left;
+		height:25px;
+	}
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-/* Logo bar for small screens*/
-#logoBar{
-	padding: 8px 2px;
-    height: 60px;
-    background-color: #005135;
-    margin-bottom: 3px;
-    border-bottom: #008348 6px solid;
-}
+	/* Logo bar for small screens*/
+	#logoBar{
+		padding: 8px 2px;
+		height: 60px;
+		background-color: #005135;
+		margin-bottom: 3px;
+		border-bottom: #008348 6px solid;
+	}
+	/*DELWP logo inner div - mobile and tablets*/
+	#DELWP-logo{
+		margin-left: 5px;
+		float: left;
+		height:38px;
+		
+	}
 
+	.btn-toolbar>.btn-group {
+		margin-top: 0px;
+		float: right;
+	}
 
-
-/*DELWP logo inner div - mobile and tablets*/
-#DELWP-logo{
-	margin-left: 5px;
-	float: left;
-	height:38px;
-	
-}
-
-.btn-toolbar>.btn-group {
-	margin-top: 0px;
-	float: right;
-}
-
-#toolbar-btns {
-	padding-top: 0px;
-}
+	#toolbar-btns {
+		padding-top: 0px;
+	}
 
 }
 
 @media (max-width: 767px) {
-/* Logo bar for small screens*/
-#logoBar{
-	padding: 8px 2px;
-    height: 95px;
-    background-color: #005135;
-    margin-bottom: 3px;
-    border-bottom: #008348 6px solid;
-}
+	/* Logo bar for small screens*/
+	#logoBar{
+		padding: 8px 2px;
+		height: 95px;
+		background-color: #005135;
+		margin-bottom: 3px;
+		border-bottom: #008348 6px solid;
+	}
 
-#map-title{
-	color: #fff;
-	margin-top: 5px;
-    margin-left: 20px;
-    float: left;
-    font-weight: bold;
-    font-size: 18px;
-}
+	#map-title{
+		color: #fff;
+		margin-top: 5px;
+		margin-left: 20px;
+		float: left;
+		font-weight: bold;
+		font-size: 18px;
+	}
 
-/*DELWP logo inner div - mobile and tablets*/
-#DELWP-logo{
-	margin-left: 5px;
-	float: left;
-	height:35px;
-	
-}
+	/*DELWP logo inner div - mobile and tablets*/
+	#DELWP-logo{
+		margin-left: 5px;
+		float: left;
+		height:35px;
+	}
 
-.btn-toolbar>.btn-group {
-	margin-top: 5px;
-	
-}
-
-#toolbar-btns {
-	padding-top: 0px;
-}
-
-#basemapDiv{
-	position: absolute;
-	top: 100px; 
-}
-
-#BasemapToggle {
-	 
-	  top: 140px;
-    right: 30px;
-}
+	.btn-toolbar>.btn-group {
+		margin-top: 5px;
+	}
+	#toolbar-btns {
+		padding-top: 0px;
+	}
+	#BasemapToggle {
+		 
+		  top: 140px;
+		right: 30px;
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 

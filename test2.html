@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <script src="http://code.jquery.com/jquery.js"></script>
+<!--
+  <script type="text/javascript" src="js/html2canvas.js"> </script>
+  <script type="text/javascript" src="js/html2canvas.min.js"> </script> -->
+
+  <title>Data-driven continuous size - 4.1</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.1/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/FeatureLayer",
+      "esri/renderers/SimpleRenderer",
+	  
+	  //"esri/config", "esri/geometry/Extent", "esri/layers/ArcGISTiledMapServiceLayer",
+	  //"esri/dijit/Print", 
+	  //"esri/tasks/PrintTask",
+	  //"esri/tasks/PrintTemplate",
+	  //"esri/tasks/PrintParameters",
+		
+	  "esri/symbols/PictureMarkerSymbol",
+      "esri/widgets/Legend",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, FeatureLayer, SimpleRenderer, 
+	 
+	  //config, Extent, ArcGISTiledMapServiceLayer, 	
+	  //Print,
+	  //PrintTask,
+	  //PrintTemplate,
+	  //PrintParameters,
+	 
+	  PictureMarkerSymbol, Legend
+    ) {
+	
+	//esriConfig.defaults.io.alwaysUseProxy = false;
+	
+	var defaultSym = new PictureMarkerSymbol({
+	  url: "http://img3.wikia.nocookie.net/__cb20140427224234/caramelangel714/images/7/72/Location_Icon.png",
+	  width: "30px",
+	  height: "30px"
+	});	
+
+      var renderer = new SimpleRenderer({
+        symbol: defaultSym,
+        label: "population in poverty by county"
+      });
+      var povLyr = new FeatureLayer({
+        url: "http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/5",
+        renderer: renderer,
+        outFields: ["*"],
+        popupTemplate: {
+          title: "Safe Areas 2013",
+          content: "Status: {BURN_STATUS} <br /> Burn name: {BURN_NAME}",
+        }//,
+        //definitionExpression: defExp.join(" OR ") // only display counties from states in defExp
+      });
+
+      var map = new Map({
+        basemap: "dark-gray",
+        layers: [povLyr]
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [145.45,-37],
+        zoom: 7
+      });
+	  
+		  
+	  
+ });
+function Print1() {
+    debugger;
+ 
+ 
+    require(["esri/map", "esri/config", "esri/geometry/Extent", "esri/layers/ArcGISTiledMapServiceLayer",
+            "esri/tasks/PrintTask", "esri/tasks/PrintTemplate", "esri/tasks/PrintParameters"],
+     function (Map,esriConfig, Extent, ArcGISTiledMapServiceLayer, PrintTask, PrintTemplate, PrintParameters) {
+        
+      
+         esriConfig.defaults.io.alwaysUseProxy = false;
+         var template = new PrintTemplate();
+         template.exportOptions = {
+             width: 500,
+             height: 400,
+             dpi: 96
+         };
+         template.format = "JPG";
+         template.layout = "MAP_ONLY";
+         template.preserveScale = false;
+         var params = new PrintParameters();
+         params.map = map;
+         params.template = template;
+         var printTask = new PrintTask("http://maps.decaturil.gov/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task");
+         printTask.execute(params, function (imagePath) {
+			alert(imagePath.url);
+             window.open(imagePath.url);
+             debugger;
+            
+         }, function (err) {
+             console.log(err);
+         });
+     });
+}
+  </script>
+</head>
+<body>
+
+  <div id="viewDiv"></div>
+  
+  <button onclick="print1();"> Ajib</button>
+
+</body>
+
+</html>
+   
+
+
+
+
+
+
+

@@ -5,143 +5,116 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<!--  CSS for Bootstrap, ArcGIS and Bootstrap-map-js -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    
-
-	<link rel="stylesheet" href="//js.arcgis.com/3.18/esri/css/esri.css">
-    <link rel="stylesheet" type="text/css" href="//esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">
-    <!--Include css files -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen"> 
+	<!--<link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/claro/claro.css"> -->
+	<link rel="stylesheet" href="http://js.arcgis.com/3.18/esri/css/esri.css">	<!-- This is for basemap -->
+	
+	
+	
+	<!--Include css files -->
 	<link rel="stylesheet" type="text/css" href="css/md-lg.css"> 
 	<link rel="stylesheet" type="text/css" href="css/sm-xs.css"> 
 	<link rel="stylesheet" type="text/css" href="css/LayersPopUp.css"> 
-	<!--<link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet"> >
-    <link rel="stylesheet" href="//js.arcgis.com/3.13/esri/css/esri.css" type="text/css"--> 
-      
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
-	<style>
 	
-	
-	/* Small devices (tablets, 768px and up) - Portrait to Landscape 
-      @media (min-height: 768px) and (max-height: 991px) {
-        .map {
-          height: 560px;
-        }
-        
-      }
+		<!--  CSS for Bootstrap, ArcGIS and Bootstrap-map-js -->
+	<!--<link rel="stylesheet" type="text/css" href="http://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">  -->
 
-      /* Medium devices (desktops, 992px and up) 
-      @media (min-height: 992px) {
-        .map {
-          height: 860px;
-        }
-      }*/
-
-</style>
+		
   </head>
   <body>
 
      <div id="wrapper" class ="container-fluid" >
 	 
-	 
+		<div class="row">
 		<!-- This utility bar will be only visible in desktops and large screens-->
-	    <div class="row  hidden-xs hidden-sm" id="logoBar" >
-			  
-			  <div class="col-md-3 col-lg-3" id="DELWPLogoDiv">
-						<!-- DELWP logo desktop/large screens-->
-					
-						 <a href="#">
-						 	<img  id="DELWP-logo"  src="images/forestfiremanagementlogo.png"> <p id="map-title">Planned Burns</p>
-						 </a> 
-			  </div>
-			  <div class="col-md-2 col-lg-2" id="mapFilter">
-						<!-- List and Filter buttons - desktop/large screens-->
-					<div class="btn-group" role="group" id="ListFilterBtns">
-						  <!-- Map Button  - desktop/large screens -->
-						   
-							<button type="button" value="List" class="btn btn-link" id="listBtn">List</button>
-								<!--span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span-->
-						  
-						    <!-- Filter Button  - desktop/large screens -->
-						    
-								<button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal" id="filterSec">
-									<span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter
-								</button>
-									 
-      
-							
-					</div>
-			  </div>
-			  <!-- Search field - desktop/large screens -->
-			  <div class="col-md-4 col-lg-4">
-			  		
-					<div id="searchBar">
-						<input type="text" class="form-control"  name="srch-term" id="srch-term">
-							<!--div class="input-group">
-								<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-								<div class="input-group-btn">
-									<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-								</div>
-							</div-->							
-					</div>
-			  </div>
-			  
-			  <div class="col-md-3 col-lg-3">
+			<div class="row hidden-xs hidden-sm " id="logoBar" >
+			
+				  <div class="col-md-3 col-lg-3" id="DELWPLogoDiv">
+					  <!-- DELWP logo desktop/large screens-->
+					 <a href="#">
+						<img  id="DELWP-logo"  src="images/forestfiremanagementlogo.png"> 
+						<p id="map-title">Planned Burns</p>
+					 </a> 
+				  </div>
+				  <div class="col-md-2 col-lg-2" id="mapFilter">
+							<!-- List and Filter buttons - desktop/large screens-->
+						<div class="btn-group" role="group" id="ListFilterBtns"> <!-- class="btn-group btn-group-justified" -->
+							<!-- Map Button  - desktop/large screens -->
+							<button type="button" value="List" class="btn btn-link" id="listBtn" >List</button>
 
-				    <div class="btn-toolbar" role="toolbar" id="toolbar-btns">
-						<div class="btn-group" role="group">
-							<button class="btn btn-link" type="button" id="export-md-lgBtn">
-								<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+							<button type="button" class="btn btn-link filterSec" data-toggle="modal" data-target="#myModal" id="filterSec">
+								<span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter
 							</button>
-							<!-- Print button -desktop/large screen -->
-							<button class="btn btn-link" type="button" onclick="printMaps()" id="print-md-lg">
-								<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
-							</button>
+
+														
 							
-							<!-- Share button -desktop/large screen -->
-							<div id="shareBtn-md-lg" class="btn-group dropdown" role="group">
-								<button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">
-								  		<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
-								</button>
-								<ul class="dropdown-menu dropdown-menu-right list-inline">
-									<li class="list-inline-item">
-										<a id="social-media-share" href="#">
-											<img  src="images/facebook.png"  class="img-responsive">
-										</a>
-									</li>
-									<li class="list-inline-item">
-										<a id="social-media-share" href="#">
-											<img  src="images/twitter.png"  class="img-responsive">
-										</a>
-									</li>
-									<li class="list-inline-item">
-										<a  id="social-media-share" href="#">
-											<img  src="images/googlePlus.png"  class="img-responsive">
-										</a>
-									</li>
-								</ul>
-							</div>							
-												
-							<!-- Help button -desktop/large screen -->
-							<button class="btn btn-link" type="button">
-								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-							</button>
 						</div>
-					</div>
-			  </div>
+						
+				  </div>
+				  <!-- Search field - desktop/large screens -->
+				  <div class="col-md-4 col-lg-4" >
+						<div id="searchBar">
+							<input type="text" class="form-control"  name="srch-term" id="srch-term">
+						</div>
+				  </div>
+				  
+				  <div class="col-md-3 col-lg-3">
+						<div class="btn-toolbar" role="toolbar" id="toolbar-btns">
+							<div class="btn-group" role="group"> 
+								<button class="btn btn-link" type="button" id="export-md-lgBtn">
+									<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+								</button>
+								<!-- Print button -desktop/large screen -->
+								<button class="btn btn-link " type="button" id="print-md-lg">
+									<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+								</button>
+							    <button class="btn btn-link socMedShare" type="button" id="socMedShare">
+							    	<span class="glyphicon glyphicon-share" aria-hidden="true" ></span>
+							    </button>
+								<button class="btn btn-link" type="button">
+									<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								</button>
+							</div>
+						</div>
+				  </div>	
 
-							
-		</div>
+			</div>
+		</div> <!-- end of row class -->
 
 		<div class="row" >
 			<!--Sidebar - will be visible just for desktops/large screens-->
-			<div class="col-md-3 col-lg-3 hidden-xs hidden-sm" id="sideBar" style="display: inline;"> 
+			
+			<div class="col-md-3 hidden-xs hidden-sm" id="sideBar"> 
 				<div id="sidebar-wrapper" >
 						<!-- List of burns-->
-						<div class="panel panel-default">
+<!--						
+						<div class="list-group">
+							<li class="list-group-item">
+								<h4 class="list-group-item-heading">Current Burns</h4>
+							</li>
+							<a href="#" class="list-group-item">
+								<img src="images/icons/export.png" style="width:20px; float:left;">
+								<span class="badge">i</span>
+								<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+								NAME
+							</a>
+							<a href="#" class="list-group-item">
+								<img src="images/icons/export.png" style="width:20px; float:left;">
+								<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+								REGION 
+								<span class="badge">i</span>
+							</a>
+							<a href="#" class="list-group-item">
+								<img src="images/icons/export.png" style="width:20px; float:left;">
+								<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+								STATUS<span class="badge">i</span>
+							</a>
+						</div>	
+-->	
+
+						<!--<div class="panel panel-default">
   							<!-- Default panel contents -->
- 							<div class="panel-heading">Current Burns</div>
+ 							<!--<div class="panel-heading">Current Burns</div>-->
 							<table class="table" >
 								<thead>
 								  	<tr>
@@ -163,231 +136,301 @@
 									</tr>
 								</tbody>
 							</table>
-						</div>
+						<!--</div>-->
+						
 				</div>
 			</div>
+			
 			<!--End of Sidebar -->
 		
 			<!-- Map section which will take 3/4 of the PC's and 4/4 of the phones/tables' screen-->
 			<div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" > 
-					<div id="logoBar" class="row visible-sm visible-xs" >
-						<!-- DELWP LOGO bar- mobile/tablets -->
-						
-								<div  class="col-sm-6 col-xs-12"> 							
-									<!-- DELWP logo - mobile/tablets -->
-									<div id="DELWPlogo-sm-xs-div">
-										 <a href="#">
-										 	<img  id="DELWP-logo"  src="images/forestfiremanagementlogo.png" >
-											<h4 id="map-title">Planned Burns</h4>
-										 </a> 
-									</div> 
-								</div>
 
-								<div class="col-sm-6 col-xs-12">
-									<!-- Share Button - mobile/tablets -->
-									<div class="btn-toolbar" role="toolbar" id="toolbar-btns">
-										<div class="btn-group" role="group">
-											<!-- List Button  - small/medium screens -->
-											<button type="button" value="List" class="btn btn-link" id="listBtn-m">List</button>
-								  
-								  			<!-- Filter Button  - small/medium screens -->
-								  			<button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal" id="filterSec">
+				<!-- This section is only visible in phones/tables -->
+				<div class="row visible-sm visible-xs" id="logoBar">
+					<!-- DELWP LOGO bar- mobile/tablets -->
+					<div  class="col-sm-6 col-xs-12" > 							
+						<!-- DELWP logo - mobile/tablets -->
+						<div id="DELWPlogo-sm-xs-div" >
+							 <!--<a href="#"><img  id="DELWP-logo-sm-xs"  src="images/icons/delwplogo.png" ></a> -->
+							 <a href="#">
+								<img  id="DELWP-logo"  src="images/forestfiremanagementlogo.png" >
+								<h4 id="map-title">Planned Burns</h4>
+							 </a> 									 
+						</div> 
+					</div>
+
+					<div class="col-sm-6 col-xs-12">
+						<!-- Share Button - mobile/tablets -->
+						<div class="btn-toolbar" role="toolbar" id="toolbar-btns">
+							<div class="btn-group" role="group">
+								<!-- List Button  - small/medium screens -->
+								<button type="button" value="List" class="btn btn-link" id="listBtn-m">List</button>
+					  
+								<!-- Filter Button  - X small/small screens -->
+								<button type="button" class="btn btn-link filterSec" data-toggle="modal" data-target="#myModal" id="filterSec-m">
 									<span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter
 								</button>
-								  			<!-- Search Button  - small/medium screens -->								  
-								  			<button type="button" class="btn btn-link">
-								  				<span class="glyphicon glyphicon-search "></span> 
-								  			</button>
-								  					  
-											<!-- Share Button  - small/medium screens -->
-											<div class="btn-group dropdown" role="group">
-												<button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">
-								  					<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
-												</button>
-												<ul class="dropdown-menu dropdown-menu-right list-inline">
-													<li class="list-inline-item">
-														<a id="social-media-share" href="#">
-															<img  src="images/facebook.png"  class="img-responsive">
-														</a>
-													</li>
-													<li class="list-inline-item">
-														<a id="social-media-share" href="#">
-															<img  src="images/twitter.png"  class="img-responsive">
-														</a>
-													</li>
-													<li class="list-inline-item">
-														<a  id="social-media-share" href="#">
-															<img  src="images/googlePlus.png"  class="img-responsive">
-														</a>
-													</li>
-												</ul>
-											</div>		
-										
-											<!-- Menu button - mobile/tablets -->
-											<div class="btn-group dropdown" role="group">
-												<button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-													<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-												</button>
-												<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-    												<li><a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export/Save</a></li>
-    												<li><a href="#"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</a></li>
-    												<li><a href="#">Help</a></li>
-    												<li role="separator" class="divider"></li>
-    												<li><a href="#">Contact DELWP</a></li>
-  												</ul>
-											</div>
-										</div>									
-									</div>
+								<!-- Search Button  - small/medium screens -->								  
+								<button type="button" class="btn btn-link">
+									<span class="glyphicon glyphicon-search "></span> 
+								</button>
+										  
+								<!-- Share Button  - small/medium screens -->
+								<div class="btn-group dropdown" role="group">
+									<button class="btn btn-link dropdown-toggle socMedShare" type="button" data-toggle="dropdown">
+										<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+									</button>
+<!--
+									<ul class="dropdown-menu dropdown-menu-right list-inline">
+										<li class="list-inline-item">
+											<a id="social-media-share" href="#">
+												<img  src="images/facebook.png"  class="img-responsive">
+											</a>
+										</li>
+										<li class="list-inline-item">
+											<a id="social-media-share" href="#">
+												<img  src="images/twitter.png"  class="img-responsive">
+											</a>
+										</li>
+										<li class="list-inline-item">
+											<a  id="social-media-share" href="#">
+												<img  src="images/googlePlus.png"  class="img-responsive">
+											</a>
+										</li>
+									</ul>
+-->									
+								</div>		
+							
+								<!-- Menu button - mobile/tablets -->
+								<div class="btn-group dropdown" role="group">
+									<button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+										<li><a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export/Save</a></li>
+										<li><a href="#" id="print-sm-xs"><span class="glyphicon glyphicon-print " aria-hidden="true"></span> Print</a></li>
+										<li><a href="#">Help</a></li>
+										<li role="separator" class="divider"></li>
+										<li><a href="#">Contact DELWP</a></li>
+									</ul>
 								</div>
-	
-				</div>	
-
-			<div class="row">
-				<!-- List Section - mobile/tablets-->
+							</div>									
+						</div>
+							
+					</div>
+			
+				</div>
+			
+				
 				<div id="mapSection" style="display:inline;" >
+						<!-- Spinning wheel for showing progress of taking snapshot of the map -->
+						<div id="spinningWheel" style="display:none;"><img src="images/spin.gif"></div>
 							
 						<div id="BasemapToggle">
-							<div style="padding-top:10px;"><input type="image" src="images/basemap-icons/streets.jpg" alt="Streets" width="34" height="28"  id="streets" > </div>
-							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/light_gray.jpg" alt="Gray" width="34" height="28" id="gray"> </div>
-							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/national_geographic.jpg" alt="National Geographic" width="34" height="28" id="national_geographic"> </div>
-							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/imagery.jpg" alt="Hybrid" width="34" height="28"  id="hybrid"> </div>
+							<div style="padding-top:10px;"><input type="image" src="images/basemap-icons/streets.jpg" data-toggle="tooltip" data-placement="left" title="Streets" alt="Streets" width="34" height="28"  id="streets" > </div>
+							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/light_gray.jpg" data-toggle="tooltip" data-placement="left" title="Gray" alt="Gray" width="34" height="28" id="gray"> </div>
+							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/national_geographic.jpg"   data-toggle="tooltip" data-placement="left" title="National Geographic" alt="National Geographic" width="34" height="28" id="national_geographic"> </div>
+							<div class="basemapAll_icons"><input type="image" src="images/basemap-icons/imagery.jpg" data-toggle="tooltip" data-placement="left" title="Hybrid" alt="Hybrid" width="34" height="28"  id="hybrid"> </div>
 						</div>
 						<div id="basemapDiv" >
-							<input type="image" src="images/basemaps.png" alt="Submit" width="34" height="28" id="basemapBtn">
+							<input type="image" src="images/basemaps.png" alt="Submit" width="34" height="28" id="basemapBtn" data-toggle="tooltip" data-placement="left" title="Basemap">
 						</div>
-						<div id="mapDiv" style="height: 257px;"></div>
+						<div id="mapDiv"></div>
 					
 				</div>
-
+				
+				
 			</div>
-			<!--End of Map section -->
-		
-			</div>
-			<!--End of col 9 -->
 			
-		</div>
-		<!--End 2nd row -->
-	
-		<!-- 3rd row List of burns in a table-->
-		<div class="row hidden" id="listOfBurns">
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal">&times;</button>
+						  <h4 class="modal-title">Filter your map!</h4>
+						</div>		
+						<!-- Popup window - (when filter button is clicked) - desktop/large screen-->
+						<div class="modal-body">
+							<div id="selectAll_defMap">	
+								<div id="selectAllLayer">
+									<button type="button" class="btn btn-default" id="selectAll">Select all layers
+									</button> 
+									<div  id="defaultMap"><div id="defaultMap"></div> </div>
+									<hr>
+								</div>
+							</div>
+							<div id="DELWPfireDis"><input type="checkbox" id="depiFireDes"> DELWP Fire Districts 
+							</div>
+							<div id="accordion"  class="panel-group">
+							
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a href="#panelBodyMap1"  data-toggle="collapse" data-parent="#accordion">
+												<span  class="glyphicon glyphicon-menu-down"></span>
+												Past Burns 
+											</a>
+										</h4>
+									</div>
+									<div id="panelBodyMap1" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div id="checkbox"> <input id="past-burns" type="checkbox" value=""> Past Burns by DELWP</div>
+											<div id="checkbox"> <input id="bushfire" type="checkbox" value=""> Bushfire history </div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a href="#panelBodyMap2"  data-toggle="collapse" data-parent="#accordion">
+												<span class="glyphicon glyphicon-menu-down"></span>
+												Current Burns 
+											</a>
+										</h4>
+									</div>
+									<div id="panelBodyMap2" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div id="checkbox"><input type="checkbox" id="inProgress"> In Progress </div>
+											<div id="checkbox"><input type="checkbox" id="nxt24"> Next 24 Hours</div>
+											<div id="checkbox"><input type="checkbox" id="w10Days"> Within 10 Days </div>
+											<div id="checkbox"><input type="checkbox" id="patrol"> Patrol</div>
+											<div id="checkbox"><input type="checkbox" id="safe"> Safe </div>
+											<div id="checkbox"><input type="checkbox" id="burnBoundary"> Burn Boundary </div>
+											<div id="checkbox"><input type="checkbox" id="publicSafetyZone"> Public Safety Zone </div>
+											
+										</div>
+									</div>
+								</div>
+								
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a href="#panelBodyMap3"  data-toggle="collapse" data-parent="#accordion">
+												<span class="glyphicon glyphicon-menu-down"></span>
+												Planned Burns 
+											</a>
+										</h4>
+									</div>
+									<div id="panelBodyMap3" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div id="checkbox"><input id="burns16_17" type="checkbox" value=""> 2016 - 2017</div>
+											<div id="checkbox"><input id="burns17_18" type="checkbox" value=""> 2017 - 2018 </div>
+											<div id="checkbox"><input id="burns18_19" type="checkbox" value=""> 2018 - 2019</div>
+												
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+
+						</div>
+						
+					</div>
+
+				</div>
+			</div> <!-- End of modal -->			
+			
+			
+			<!-- List of burns in a table-->
+			<div class="row" style="display:none;" id="listOfBurns">
 
 				<!-- List of Burns Section-->
-				
-				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" align="center">
-					<iframe id="summary" src="http://firewebext.fem.vic.gov.au/BurnsToday/burnssummary1_V2.htm" style="width: 95%; height: 700px; background: none; border: none;"></iframe>
-					
-				</div>
-				
-		</div>
-		 <!--End 3rd row -->
-		 <!-- Filter modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-											<div class="modal-dialog">
-											    <!-- Modal content-->
-											    <div class="modal-content">
-													<div class="modal-header">
-														  <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-															
-														    
-															
-															<button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-															<h4 class="modal-title">Filter your map!</h4>
-															
-													</div>		
-													<!-- Popup window - (when filter button is clicked) - desktop/large screen-->
-													<div class="modal-body">
-													<div class="container-fluid">
-													<div class="row">
-            										<div class="col-xs-6 col-sm-6 col-md-6" align="center"><button type="button" class="btn btn-default">Select all layers</button></div>
-            										<div class="col-xs-6 col-sm-6 col-md-6" align="center"><!--button type="button" class="btn btn-default">Default layers</button--><div id="defaultMap"></div></div>
-          											</div>
-													</div>
-													<div class="list-group" style="margin-top: 15px;">
-															<div id="checkbox"><input type="checkbox" id="depiFireDes"> DELWP Fire Districts </div></div>
-															<div id="accordion"  class="panel-group">
-																<div class="panel panel-default">
-																	<div class="panel-heading">
-																		<h4 class="panel-title">
-																			<a href="#panelBodyMap3"  data-toggle="collapse" data-parent="#accordion">
-																				<span class="glyphicon glyphicon-menu-down"></span>
-																				Past Burns 
-																			</a>
-																		</h4>
-																	</div>
-																	<div id="panelBodyMap3" class="panel-collapse collapse">
-																		<div class="panel-body">
-																			
-																				<div id="checkbox"> <input id="past-burns" type="checkbox" value=""> Past Burns by DELWP</div>
-																				<div id="checkbox"> <input type="checkbox" value=""> Bushfire history </div>
-																		</div>
-																	</div>
-																</div>
-																<div class="panel panel-default">
-																	<div class="panel-heading">
-																		<h4 class="panel-title">
-																			<a href="#panelBodyMap1"  data-toggle="collapse" data-parent="#accordion">
-																				<span  class="glyphicon glyphicon-menu-down"></span>
-																				Current Burns 
-																			</a>
-																		</h4>
-																	</div>
-																	<div id="panelBodyMap1" class="panel-collapse collapse">
-																		<div class="panel-body">
-																			
-																				<div id="checkbox"><input type="checkbox" id="inProgress"> In Progress </div>
-																				<div id="checkbox"><input type="checkbox" id="nxt24"> Next 24 Hours</div>
-																				<div id="checkbox"><input type="checkbox" id="w10Days"> Within 10 Days </div>
-																				<div id="checkbox"><input type="checkbox" id="patrol"> Patrol</div>
-																				<div id="checkbox"><input type="checkbox" id="safe"> Safe </div>
-																				<div id="checkbox"><input type="checkbox" id="burnBoundary"> Burn Boundary </div>
-																				
-																				
-																			
-																		</div>
-																	</div>
-																</div>
-																
-																<div class="panel panel-default">
-																	<div class="panel-heading">
-																		<h4 class="panel-title">
-																			<a href="#panelBodyMap2"  data-toggle="collapse" data-parent="#accordion">
-																				<span class="glyphicon glyphicon-menu-down"></span>
-																				Planned Burns 
-																			</a>
-																		</h4>
-																	</div>
-																	<div id="panelBodyMap2" class="panel-collapse collapse">
-																		<div class="panel-body">
-																			<div id="checkbox"><input type="checkbox" value=""> 2016 - 2017</div>
-																				<div id="checkbox"><input type="checkbox" value=""> 2017 - 2018 </div>
-																				<div id="checkbox"><input type="checkbox" value=""> 2018 - 2019</div>
-																				
-																			
-																		</div>
-																	</div>
-																</div>
-															</div>
+<!--				
+				<div  >
 
-													</div>
-													
-											    </div>
-								
-											</div>
-		</div>	
-		<!-- end of filter modal -->
-	
-</div>
+						<div class="container-fluid">
+							  <table class="table table-striped" >
+								<thead>
+								  <tr>
+									<th><h3>Location</h3></th>
+									<th><h3>Status</h3></th>
+									<th><h3>Size</h3></th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr>
+									<td>POATH RD, HUGHESDALE</td>
+									<td>In Progress</td>
+									<td>Small - 2000 sq</td>
+								  </tr>
+								  <tr>
+									<td>MARGARET ST, WERRIBEE</td>
+									<td>Next 24 Hours</td>
+									<td>Medium</td>
+								  </tr>
+								  <tr>
+									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
+									<td>Next 10 Days</td>
+									<td>Big - 12,000 Hectare</td>
+								  </tr>
+								  <tr>
+									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
+									<td>Next 10 Days</td>
+									<td>Big - 12,000 Hectare</td>
+								  </tr>
+								  <tr>
+									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
+									<td>Next 10 Days</td>
+									<td>Big - 12,000 Hectare</td>
+								  </tr>
+								  <tr>
+									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
+									<td>Next 10 Days</td>
+									<td>Big - 12,000 Hectare</td>
+								  </tr>
+								  <tr>
+									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
+									<td>Next 10 Days</td>
+									<td>Big - 12,000 Hectare</td>
+								  </tr>
+								  <tr>
+									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
+									<td>Next 10 Days</td>
+									<td>Big - 12,000 Hectare</td>
+								  </tr>
+								  <tr>
+									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
+									<td>Next 10 Days</td>
+									<td>Big - 12,000 Hectare</td>
+								  </tr>
+								</tbody>
+							  </table>
+						</div>					
+						
+				</div>
+-->
+
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" align="center">
+				<iframe id="summary" src="http://firewebext.fem.vic.gov.au/BurnsToday/burnssummary1_V2.htm" style="width: 95%; height: 700px; background: none; border: none;"></iframe>
+				
+			</div>				
+			</div>
+			
+		</div>
+			
+		
+			
+	</div>
+
     <!--  JS to Load the responsive map -->
 	<script type="text/javascript" src="js/responsive_map.js"> </script>
-    <script src="https://js.arcgis.com/3.18compact/"></script>
-	<!--script src="//js.arcgis.com/3.18/"></script> <<script src="//js.arcgis.com/3.13compact"></script> -->
+    <!--<script src="//js.arcgis.com/3.13compact"></script> -->
+	<!--<script src="https://js.arcgis.com/3.18compact/"></script>-->
+	<script src="//js.arcgis.com/3.18/"></script> 
 	<script type="text/javascript" src="js/map.js"> </script>
 	<!-- For Basemap -->
 
 	
-    <!-- jQuery + Bootstrap (for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	 	 
+    <!-- Include all  plugins or individual files as needed -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	
 	<!-- Include JS files -->
 	<script type="text/javascript" src="js/toggle_menu.js"> </script>
