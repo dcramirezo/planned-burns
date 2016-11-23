@@ -69,11 +69,20 @@ require([
 		  infoWindow: popup
 		});
 
+		
 		/* Search option*/
         var search = new Search({
            map: map
         }, "srch-term");
-        search.startup();		
+        search.startup();	
+
+		/* Search option for mobile/tablet */
+        var searchM = new Search({
+           map: map
+        }, "srch-term-m");
+        searchM.startup();		
+		
+		
 		
 		/* Home button */
 		var home = new HomeButton({

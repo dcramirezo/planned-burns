@@ -44,9 +44,7 @@
 
 							<button type="button" class="btn btn-link filterSec" data-toggle="modal" data-target="#myModal" id="filterSec">
 								<span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter
-							</button>
-
-														
+							</button>														
 							
 						</div>
 						
@@ -167,12 +165,13 @@
 								<!-- List Button  - small/medium screens -->
 								<button type="button" value="List" class="btn btn-link" id="listBtn-m">List</button>
 					  
-								<!-- Filter Button  - X small/small screens -->
-								<button type="button" class="btn btn-link filterSec" data-toggle="modal" data-target="#myModal" id="filterSec-m">
+								<!-- Filter Button  - small/medium screens -->
+								<button type="button" class="btn btn-link filterSec" data-toggle="modal" data-target="#myModal" id="filterSec">
 									<span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter
 								</button>
+
 								<!-- Search Button  - small/medium screens -->								  
-								<button type="button" class="btn btn-link">
+								<button type="button" class="btn btn-link" data-toggle="modal" data-target="#searchModal">
 									<span class="glyphicon glyphicon-search "></span> 
 								</button>
 										  
@@ -181,25 +180,6 @@
 									<button class="btn btn-link dropdown-toggle socMedShare" type="button" data-toggle="dropdown">
 										<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
 									</button>
-<!--
-									<ul class="dropdown-menu dropdown-menu-right list-inline">
-										<li class="list-inline-item">
-											<a id="social-media-share" href="#">
-												<img  src="images/facebook.png"  class="img-responsive">
-											</a>
-										</li>
-										<li class="list-inline-item">
-											<a id="social-media-share" href="#">
-												<img  src="images/twitter.png"  class="img-responsive">
-											</a>
-										</li>
-										<li class="list-inline-item">
-											<a  id="social-media-share" href="#">
-												<img  src="images/googlePlus.png"  class="img-responsive">
-											</a>
-										</li>
-									</ul>
--->									
 								</div>		
 							
 								<!-- Menu button - mobile/tablets -->
@@ -336,6 +316,29 @@
 
 				</div>
 			</div> <!-- End of modal -->			
+			
+			<!-- Search modal popup window -->
+			<div class="modal fade" id="searchModal" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal">&times;</button>
+						  <h4 class="modal-title">Search for burns</h4>
+						</div>		
+						<!-- Popup window - (when search button is clicked) - mobile/tablets -->
+						<div class="modal-body">
+							<div>
+								<input type="text" class="form-control"  name="srch-term-m" id="srch-term-m">
+							</div>							
+
+						</div>
+						
+					</div>
+
+				</div>
+			</div> <!-- End of search modal -->			
+			
 			
 			
 			<!-- List of burns in a table-->

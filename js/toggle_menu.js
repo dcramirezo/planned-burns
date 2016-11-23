@@ -236,5 +236,3 @@ $('#basemapBtn').click(function(){
 
 
 
-
-
