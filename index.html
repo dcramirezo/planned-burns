@@ -25,17 +25,17 @@
 
      <div id="wrapper" class ="container-fluid" >
 	 
-		<div class="row">
+		
 		<!-- This utility bar will be only visible in desktops and large screens-->
-			<div class="row hidden-xs hidden-sm " id="logoBar" >
+		<div class="row hidden-xs hidden-sm " id="logoBar" >
 			
-				  <div class="col-md-3 col-lg-3" id="DELWPLogoDiv">
+				 <div class="col-md-3 col-lg-3" id="DELWPLogoDiv">
 					  <!-- DELWP logo desktop/large screens-->
 					 <a href="#">
 						<img  id="DELWP-logo"  src="images/forestfiremanagementlogo.png"> 
 						<p id="map-title">Planned Burns</p>
 					 </a> 
-				  </div>
+				 </div>
 				  <div class="col-md-2 col-lg-2" id="mapFilter">
 							<!-- List and Filter buttons - desktop/large screens-->
 						<div class="btn-group" role="group" id="ListFilterBtns"> <!-- class="btn-group btn-group-justified" -->
@@ -48,36 +48,64 @@
 							
 						</div>
 						
-				  </div>
-				  <!-- Search field - desktop/large screens -->
-				  <div class="col-md-4 col-lg-4" >
+				 </div>
+				 <!-- Search field - desktop/large screens -->
+				 <div class="col-md-3 col-lg-3" >
+
 						<div id="searchBar">
-							<input type="text" class="form-control"  name="srch-term" id="srch-term">
+							<input type="text" class="form-control" name="srch-term" id="srch-term">
+							<span id="close-search" class="input-group-btn">
+								<button  class="btn btn-link">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</span>
+							
 						</div>
-				  </div>
+				 </div>
 				  
-				  <div class="col-md-3 col-lg-3">
+				<div class="col-md-4 col-lg-4">
+				  	
 						<div class="btn-toolbar" role="toolbar" id="toolbar-btns">
-							<div class="btn-group" role="group"> 
-								<button class="btn btn-link" type="button" id="export-md-lgBtn">
+							<div class="btn-group" role="group">
+																  
+								<button type="button" class="btn btn-link" value="overview" data-toggle="modal" data-target="#overview">
+									<span class="glyphicon glyphicon-info-sign"></span> Overview
+								</button>
+								<button class="btn btn-link" type="button" data-toggle="modal" data-target="#legend">
+									Legend
+								</button>
+								<button class="btn btn-link socMedShare" type="button" id="socMedShare">
+							    	<span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share
+							    </button>
+								<!--button class="btn btn-link" type="button" id="export-md-lgBtn">
 									<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
 								</button>
-								<!-- Print button -desktop/large screen -->
 								<button class="btn btn-link " type="button" id="print-md-lg">
-									<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-print" aria-hidden="true"> </span>
 								</button>
-							    <button class="btn btn-link socMedShare" type="button" id="socMedShare">
-							    	<span class="glyphicon glyphicon-share" aria-hidden="true" ></span>
-							    </button>
+							    
 								<button class="btn btn-link" type="button">
-									<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-								</button>
+									<span class="glyphicon glyphicon-question-sign"></span> Help
+								</button-->
+								<!-- Menu button - mobile/tablets -->
+								<div class="btn-group dropdown" role="group">
+									<button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+										<li><a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export/Save</a></li>
+										<li><a href="#" id="print-sm-xs"><span class="glyphicon glyphicon-print " aria-hidden="true"></span> Print</a></li>
+										<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+										<li role="separator" class="divider"></li>
+										<li><a href="#">Contact DELWP</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
-				  </div>	
-
-			</div>
-		</div> <!-- end of row class -->
+				  	</div>	
+				</div>
+		</div>
+			 <!-- end of row class -->
 
 		<div class="row" >
 			<!--Sidebar - will be visible just for desktops/large screens-->
@@ -85,34 +113,6 @@
 			<div class="col-md-3 hidden-xs hidden-sm" id="sideBar"> 
 				<div id="sidebar-wrapper" >
 						<!-- List of burns-->
-<!--						
-						<div class="list-group">
-							<li class="list-group-item">
-								<h4 class="list-group-item-heading">Current Burns</h4>
-							</li>
-							<a href="#" class="list-group-item">
-								<img src="images/icons/export.png" style="width:20px; float:left;">
-								<span class="badge">i</span>
-								<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
-								NAME
-							</a>
-							<a href="#" class="list-group-item">
-								<img src="images/icons/export.png" style="width:20px; float:left;">
-								<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
-								REGION 
-								<span class="badge">i</span>
-							</a>
-							<a href="#" class="list-group-item">
-								<img src="images/icons/export.png" style="width:20px; float:left;">
-								<span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
-								STATUS<span class="badge">i</span>
-							</a>
-						</div>	
--->	
-
-						<!--<div class="panel panel-default">
-  							<!-- Default panel contents -->
- 							<!--<div class="panel-heading">Current Burns</div>-->
 							<table class="table" >
 								<thead>
 								  	<tr>
@@ -134,7 +134,7 @@
 									</tr>
 								</tbody>
 							</table>
-						<!--</div>-->
+						
 						
 				</div>
 			</div>
@@ -159,9 +159,16 @@
 					</div>
 
 					<div class="col-sm-6 col-xs-12">
-						<!-- Share Button - mobile/tablets -->
+						
+							
 						<div class="btn-toolbar" role="toolbar" id="toolbar-btns">
+
 							<div class="btn-group" role="group">
+								<!-- Search Button  - small/medium screens -->								  
+								<button type="button" class="btn btn-link" id="mobile-search">
+									<span class="glyphicon glyphicon-search "></span> 
+								</button>
+
 								<!-- List Button  - small/medium screens -->
 								<button type="button" value="List" class="btn btn-link" id="listBtn-m">List</button>
 					  
@@ -170,15 +177,20 @@
 									<span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filter
 								</button>
 
-								<!-- Search Button  - small/medium screens -->								  
-								<button type="button" class="btn btn-link" data-toggle="modal" data-target="#searchModal">
-									<span class="glyphicon glyphicon-search "></span> 
+								<!-- Legend Button  - small/medium screens -->								  
+								<button type="button" class="btn btn-link" data-toggle="modal" data-target="#legend">
+									<!--span class="glyphicon glyphicon-search "></span-->Legend
+								</button>
+
+								<!-- Overiew Button  - small/medium screens -->								  
+								<button type="button" class="btn btn-link" value="overview" data-toggle="modal" data-target="#overview">
+									<span class="glyphicon glyphicon-info-sign"></span> Overview
 								</button>
 										  
 								<!-- Share Button  - small/medium screens -->
 								<div class="btn-group dropdown" role="group">
 									<button class="btn btn-link dropdown-toggle socMedShare" type="button" data-toggle="dropdown">
-										<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+										<span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share
 									</button>
 								</div>		
 							
@@ -190,7 +202,7 @@
 									<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
 										<li><a href="#"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export/Save</a></li>
 										<li><a href="#" id="print-sm-xs"><span class="glyphicon glyphicon-print " aria-hidden="true"></span> Print</a></li>
-										<li><a href="#">Help</a></li>
+										<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
 										<li role="separator" class="divider"></li>
 										<li><a href="#">Contact DELWP</a></li>
 									</ul>
@@ -199,7 +211,14 @@
 						</div>
 							
 					</div>
-			
+					<div class="col-sm-6 col-xs-12">
+						<!-- Search Button  - small/medium screens -->	
+						<a class="btn btn-link" type="button" id="close-search">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</a>							  
+						<div id="searchBar-mobile"></div>
+								
+					</div>
 				</div>
 			
 				
@@ -223,7 +242,7 @@
 				
 			</div>
 			
-			<!-- Modal -->
+			<!-- Filters Modal -->
 			<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
 					<!-- Modal content-->
@@ -242,10 +261,9 @@
 									<hr>
 								</div>
 							</div>
-							<div id="DELWPfireDis"><input type="checkbox" id="depiFireDes"> DELWP Fire Districts 
-							</div>
-							<div id="last5yearsFH"><input type="checkbox" id="last5yearsFireHistory"> Last 5 Years Fire History 
-							</div>
+							<div id="DELWPfireDis"><input type="checkbox" id="depiFireDes"> DELWP Fire Districts</div>
+							<div id="checkbox"><input type="checkbox" id="publicSafetyZone"> Public Safety Zone </div>
+							<div id="last5yearsFH"><input type="checkbox" id="last5yearsFireHistory"> Last 5 Years Fire History</div>
 							<div id="accordion"  class="panel-group">
 							
 								<div class="panel panel-default">
@@ -259,8 +277,9 @@
 									</div>
 									<div id="panelBodyMap1" class="panel-collapse collapse">
 										<div class="panel-body">
-											<div id="checkbox"> <input id="past-burns" type="checkbox" value=""> Past Burns by DELWP</div>
-											<div id="checkbox"> <input id="bushfire" type="checkbox" value=""> Bushfire history </div>
+											<div id="checkbox"> <input id="past-burns" type="checkbox" value=""> 1 - 3 years</div>
+											<div id="checkbox"> <input id="bushfire" type="checkbox" value=""> 3 - 5 years </div>
+											<div id="checkbox"> <input id="bushfire" type="checkbox" value=""> 5+ years </div>
 										</div>
 									</div>
 								</div>
@@ -282,8 +301,6 @@
 											<div id="checkbox"><input type="checkbox" id="patrol"> Patrol</div>
 											<div id="checkbox"><input type="checkbox" id="safe"> Safe </div>
 											<div id="checkbox"><input type="checkbox" id="burnBoundary"> Burn Boundary </div>
-											<div id="checkbox"><input type="checkbox" id="publicSafetyZone"> Public Safety Zone </div>
-											
 										</div>
 									</div>
 								</div>
@@ -315,101 +332,154 @@
 					</div>
 
 				</div>
-			</div> <!-- End of modal -->			
-			
-			<!-- Search modal popup window -->
-			<div class="modal fade" id="searchModal" role="dialog">
+			</div> <!-- End of filter modal -->
+
+			<!-- State overview Modal -->
+			<div class="modal fade" id="overview" role="dialog">
 				<div class="modal-dialog">
 					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
 						  <button type="button" class="close" data-dismiss="modal">&times;</button>
-						  <h4 class="modal-title">Search for burns</h4>
+						  <h4 class="modal-title">State Overview</h4>
 						</div>		
-						<!-- Popup window - (when search button is clicked) - mobile/tablets -->
+						<!-- Popup window - (when filter button is clicked) - desktop/large screen-->
 						<div class="modal-body">
-							<div>
-								<input type="text" class="form-control"  name="srch-term-m" id="srch-term-m">
-							</div>							
+							
+							<iframe id="iframeoutlook" src="https://firewebext.ffm.vic.gov.au/BurnsToday/externalnoteoutlook_v2.htm">
+							</iframe>
+	
+						</div>
+					</div>
+				</div>
+			</div> <!-- End of state overview modal -->	
 
+			<!-- Legends Modal -->
+			<div class="modal fade" id="legend" role="dialog">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal">&times;</button>
+						  <h4 class="modal-title">Legend</h4>
+						</div>		
+						<!-- Popup window - (when filter button is clicked) - desktop/large screen-->
+						<div class="modal-body">
+						
+							<div class="panel panel-default">
+  								<div class="panel-body">
+  									<div class="row">
+										<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+											<img src="images/icons/safe.png" style="width:30px;">
+											DELWP districts
+										</div>
+										<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+											<img src="images/icons/safe.png" style="width:30px;">
+											DELWP districts
+										</div>
+										<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+											<img src="images/icons/safe.png" style="width:30px;">
+											DELWP districts
+										</div>
+									</div>
+								</div>
+							</div>
+						
+					<div class="row">
+						
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="panel panel-default">
+							  <!-- Default panel contents -->
+							
+							  <div class="panel-heading">Past Burns</div>
+
+								  <!-- Table -->
+								  <table class="table">
+									   	<tbody>
+											<tr>
+												<td><img src="images/icons/1-3years.png" style="width:30px;"></td>
+												<td>1 - 3 years</td>
+											</tr>
+											<tr>
+												<td><img src="images/icons/3-5years.png" style="width:30px;"></td>
+												<td>3 - 5 years</td>
+											</tr>
+											<tr>
+												<td><img src="images/icons/5plus.png" style="width:30px;"></td>
+												<td>5+ years</td>
+											</tr>
+										</tbody>
+								  </table>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="panel panel-default">
+							  <!-- Default panel contents -->
+							<div class="panel-heading">Future Burns</div>
+
+								  <!-- Table -->
+								  <table class="table">
+									   	<tbody>
+											<tr>
+												<td><img src="images/icons/1yearplan.png" style="width:30px;"></td>
+												<td>2016 - 2017 plan</td>
+											</tr>
+											<tr>
+												<td><img src="images/icons/1yearplan.png" style="width:30px;"></td>
+												<td>2017 - 2018 plan</td>
+											</tr>
+											<tr>
+												<td><img src="images/icons/1yearplan.png" style="width:30px;"></td>
+												<td>2018 - 2019 plan</td>
+											</tr>
+										</tbody>
+								  </table>
+							</div>
+						</div>
+					</div>
+							
+							<div class="panel panel-default">
+							  <!-- Default panel contents -->
+								<div class="panel-heading">Current Burns</div>
+
+							  <!-- Table -->
+							  <table class="table">
+								   	<tbody>
+										<tr>
+											<td><img src="images/icons/inprogress.png" style="width:30px;"></td>
+											<td>In Progress</td>
+											
+											<td><img src="images/icons/24hour.png" style="width:30px;"></td>
+											<td>Next 24 Hours</td>
+											
+										</tr>
+										<tr>
+											<td><img src="images/icons/10day.png" style="width:30px;"></td>
+											<td>Within 10 Days</td>
+										
+											<td><img src="images/icons/patrolled.png" style="width:30px;"></td>
+											<td>Patrol</td>
+										</tr>
+										<tr>
+											<td><img src="images/icons/safe.png" style="width:30px;"></td>
+											<td>Safe</td>
+										
+										 	<td><img src="images/icons/safe.png" style="width:30px;"></td>
+											<td>Burn Boundary</td>
+										</tr>
+										
+									</tbody>
+							  </table>
 						</div>
 						
 					</div>
-
 				</div>
-			</div> <!-- End of search modal -->			
+			</div> <!-- End of Legend modal -->			
 			
-			
-			
-			<!-- List of burns in a table-->
+						<!-- List of burns in a table-->
 			<div class="row" style="display:none;" id="listOfBurns">
 
 				<!-- List of Burns Section-->
-<!--				
-				<div  >
-
-						<div class="container-fluid">
-							  <table class="table table-striped" >
-								<thead>
-								  <tr>
-									<th><h3>Location</h3></th>
-									<th><h3>Status</h3></th>
-									<th><h3>Size</h3></th>
-								  </tr>
-								</thead>
-								<tbody>
-								  <tr>
-									<td>POATH RD, HUGHESDALE</td>
-									<td>In Progress</td>
-									<td>Small - 2000 sq</td>
-								  </tr>
-								  <tr>
-									<td>MARGARET ST, WERRIBEE</td>
-									<td>Next 24 Hours</td>
-									<td>Medium</td>
-								  </tr>
-								  <tr>
-									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
-									<td>Next 10 Days</td>
-									<td>Big - 12,000 Hectare</td>
-								  </tr>
-								  <tr>
-									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
-									<td>Next 10 Days</td>
-									<td>Big - 12,000 Hectare</td>
-								  </tr>
-								  <tr>
-									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
-									<td>Next 10 Days</td>
-									<td>Big - 12,000 Hectare</td>
-								  </tr>
-								  <tr>
-									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
-									<td>Next 10 Days</td>
-									<td>Big - 12,000 Hectare</td>
-								  </tr>
-								  <tr>
-									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
-									<td>Next 10 Days</td>
-									<td>Big - 12,000 Hectare</td>
-								  </tr>
-								  <tr>
-									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
-									<td>Next 10 Days</td>
-									<td>Big - 12,000 Hectare</td>
-								  </tr>
-								  <tr>
-									<td>GOULBURN WEIR RD, KIRWANS BRIDGE</td>
-									<td>Next 10 Days</td>
-									<td>Big - 12,000 Hectare</td>
-								  </tr>
-								</tbody>
-							  </table>
-						</div>					
-						
-				</div>
--->
-
 			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" align="center">
 				<iframe id="summary" src="http://firewebext.fem.vic.gov.au/BurnsToday/burnssummary1_V2.htm" style="width: 95%; height: 700px; background: none; border: none;"></iframe>
 				
