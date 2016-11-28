@@ -16,6 +16,22 @@ $(document).ready(function (){
     });
 	
 	console.log(flagForListMapBtn);
+	if ( $(window).width() <= 768) { 
+		/* Search bar toogle */
+		console.log("Less than 768");
+		//$("#searchBar").append("#searchBar-mobile");
+		$("#searchBar-mobile").append($("#searchBar"));
+		$("#mobile-search").click(function() {
+			console.log("been clicked!");
+			$("#searchBar-mobile").css("display", "block");
+			$("#close-search").css("display", "block");
+		});
+
+		$("#close-search").click(function() {
+			$("#searchBar-mobile").css("display", "none");
+			$("#close-search").css("display", "none");
+		});
+	}
 });
 
 /* On window resize event */
@@ -64,6 +80,25 @@ $( window ).resize(function() {
 			//flagForListMapBtn = 1;
 		}		
 	}
+
+	if ( $(window).width() <= 768) { 
+/* Search bar toogle 
+	*/
+	console.log("Less than 768");
+	//$("#searchBar").append("#searchBar-mobile");
+	$("#searchBar-mobile").append($("#searchBar"));
+	$("#mobile-search").click(function() {
+		console.log("been clicked!");
+		$("#searchBar-mobile").css("display", "block");
+		$("#close-search").css("display", "block");
+	});
+
+	$("#close-search").click(function() {
+		$("#searchBar-mobile").css("display", "none");
+		//this.css("display", "none");
+	});
+}
+
 
 });
 
@@ -136,6 +171,7 @@ $( "#listBtn-m" ).click(function() {
 
 });
 	
+
 
 /* Print the map - Pops up the print preview page - laptop/desktop */
 /* Reference link: http://jsfiddle.net/glenn/6mx21ted/ */
