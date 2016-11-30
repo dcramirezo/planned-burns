@@ -18,20 +18,25 @@ $(document).ready(function (){
 	console.log(flagForListMapBtn);
 	if ( $(window).width() <= 768) { 
 		/* Search bar toogle */
-		console.log("Less than 768");
-		//$("#searchBar").append("#searchBar-mobile");
+
 		$("#searchBar-mobile").append($("#searchBar"));
 		$("#mobile-search").click(function() {
-			console.log("been clicked!");
-			$("#searchBar-mobile").css("display", "block");
-			$("#close-search").css("display", "block");
+			if($("#search-icon").is(':visible')) {
+				console.log("show  clicked!");
+				$("#searchBar-mobile").css("display", "block");
+				$("#close-search").css("display", "block");
+				$("#search-icon").css("display", "none");
+				$("#close-search").show();
+			} else if($("#close-search").is(':visible')) {
+				console.log("hide  clicked!");
+				$("#searchBar-mobile").css("display", "none");
+				$("#search-icon").show();
+				$("#close-search").hide();
+			}
 		});
+		
+	} 
 
-		$("#close-search").click(function() {
-			$("#searchBar-mobile").css("display", "none");
-			$("#close-search").css("display", "none");
-		});
-	}
 });
 
 /* On window resize event */
@@ -82,22 +87,26 @@ $( window ).resize(function() {
 	}
 
 	if ( $(window).width() <= 768) { 
-/* Search bar toogle 
-	*/
-	console.log("Less than 768");
-	//$("#searchBar").append("#searchBar-mobile");
-	$("#searchBar-mobile").append($("#searchBar"));
-	$("#mobile-search").click(function() {
-		console.log("been clicked!");
-		$("#searchBar-mobile").css("display", "block");
-		$("#close-search").css("display", "block");
-	});
+		/* Search bar toogle */
 
-	$("#close-search").click(function() {
-		$("#searchBar-mobile").css("display", "none");
-		//this.css("display", "none");
-	});
-}
+		$("#searchBar-mobile").append($("#searchBar"));
+		$("#mobile-search").click(function() {
+			if($("#search-icon").is(':visible')) {
+				console.log("show  clicked!");
+				$("#searchBar-mobile").css("display", "block");
+				$("#close-search").css("display", "block");
+				$("#search-icon").css("display", "none");
+				$("#close-search").show();
+			} else if($("#close-search").is(':visible')) {
+				console.log("hide  clicked!");
+				$("#searchBar-mobile").css("display", "none");
+				$("#search-icon").show();
+				$("#close-search").hide();
+			}
+		});
+	} else {
+		$("#searchBar-larged").append($("#searchBar"));
+	}
 
 
 });

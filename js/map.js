@@ -52,14 +52,26 @@ require([
 		/* Set markers for different layers */
 		
 		/* Safe icon marker*/
-		var Safemarker = new PictureMarkerSymbol('http://adkasel.com/map-test-esri/images/icons/safe.png', 30, 30);
+		var Safemarker = new PictureMarkerSymbol('images/icons/safe.png', 30, 30);
 		var SafeRenderer = new SimpleRenderer(Safemarker);
 		
 		/* Next 10 days icon marker*/
-		var nxt10Marker = new PictureMarkerSymbol('http://adkasel.com/map-test-esri/images/icons/10day.png', 30, 30);
+		var nxt10Marker = new PictureMarkerSymbol('images/icons/10day.png', 30, 30);
 		var nxt10Renderer = new SimpleRenderer(nxt10Marker);
+
+		/* Next 24 hrs icon marker*/
+		var nxt24hrmarker = new PictureMarkerSymbol('images/icons/24hour.png', 30, 30);
+		var nxt24hrRenderer = new SimpleRenderer(nxt24hrmarker);
 		
-	
+		/* inProgress icon marker*/
+		var inProgressMarker = new PictureMarkerSymbol('images/icons/inprogress.png', 30, 30);
+		var inProgressRenderer = new SimpleRenderer(inProgressMarker);
+
+		/* Safe icon marker*/
+		var patrolmarker = new PictureMarkerSymbol('images/icons/patrolled.png', 30, 30);
+		var patrolRenderer = new SimpleRenderer(patrolmarker);
+		
+			
 		// Create map
 		var map = new Map("mapDiv",{ 
 		  basemap: "gray",
@@ -126,13 +138,14 @@ require([
 		
 		// InProgress layer
 		var inProgressLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/1", {visible:false});
+		inProgressLayer.setRenderer(inProgressRenderer); 
 		map.addLayer(inProgressLayer);
 
 		var nxt24Layer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/2", {
 		outFields: ["*"],
 		infoTemplate: template,
 		visible:false});
-		
+		nxt24Layer.setRenderer(nxt24hrRenderer); 
 		map.addLayer(nxt24Layer);
 
 		// Next 10 days layer
@@ -146,6 +159,7 @@ require([
 		
 		// Patrol layer
 		var patrolLayer = new FeatureLayer("http://nvt.dse.vic.gov.au/arcgis/rest/services/BusinessApps/burnplan_csdl/MapServer/4", {visible:false});
+		patrolLayer.setRenderer(patrolRenderer);
 		map.addLayer(patrolLayer);
 		
 		
