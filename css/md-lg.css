@@ -189,12 +189,12 @@ tr th {
 	display: none;
 }
 
-#close-search {
+/*#close-search {
 	position: absolute;
     top: -32px;
     left: 238px;
     background: #005135;
-}
+}*/
 
 #searchBar-mobile {
 	position: absolute;
@@ -308,11 +308,7 @@ tr th {
 		top: 115px;
 	}
 
-	/*#searchBar-mobile {
-		position: absolute;
-	    z-index: 100;
-	    margin: 10px 0px;
-	}*/
+	
 }
 
 

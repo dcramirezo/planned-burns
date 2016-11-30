@@ -50,16 +50,11 @@
 						
 				 </div>
 				 <!-- Search field - desktop/large screens -->
-				 <div class="col-md-3 col-lg-3" >
+				 <div class="col-md-3 col-lg-3" id="searchBar-larged">
 
 						<div id="searchBar">
 							<input type="text" class="form-control" name="srch-term" id="srch-term">
-							<span id="close-search" class="input-group-btn">
-								<button  class="btn btn-link">
-									<span class="glyphicon glyphicon-remove"></span>
-								</button>
-							</span>
-							
+														
 						</div>
 				 </div>
 				  
@@ -77,16 +72,7 @@
 								<button class="btn btn-link socMedShare" type="button" id="socMedShare">
 							    	<span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share
 							    </button>
-								<!--button class="btn btn-link" type="button" id="export-md-lgBtn">
-									<span class="glyphicon glyphicon-export" aria-hidden="true"></span>
-								</button>
-								<button class="btn btn-link " type="button" id="print-md-lg">
-									<span class="glyphicon glyphicon-print" aria-hidden="true"> </span>
-								</button>
-							    
-								<button class="btn btn-link" type="button">
-									<span class="glyphicon glyphicon-question-sign"></span> Help
-								</button-->
+								
 								<!-- Menu button - mobile/tablets -->
 								<div class="btn-group dropdown" role="group">
 									<button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -166,7 +152,8 @@
 							<div class="btn-group" role="group">
 								<!-- Search Button  - small/medium screens -->								  
 								<button type="button" class="btn btn-link" id="mobile-search">
-									<span class="glyphicon glyphicon-search "></span> 
+									<span class="glyphicon glyphicon-search" id="search-icon"></span>
+									<span class="glyphicon glyphicon-remove" id="close-search"></span>
 								</button>
 
 								<!-- List Button  - small/medium screens -->
@@ -212,10 +199,10 @@
 							
 					</div>
 					<div class="col-sm-6 col-xs-12">
-						<!-- Search Button  - small/medium screens -->	
-						<a class="btn btn-link" type="button" id="close-search">
+						<!-- Search Button  - small/medium screens >	
+						<a class="btn btn-link" type="button" >
 							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-						</a>							  
+						</a-->							  
 						<div id="searchBar-mobile"></div>
 								
 					</div>
@@ -262,7 +249,7 @@
 								</div>
 							</div>
 							<div id="DELWPfireDis"><input type="checkbox" id="depiFireDes"> DELWP Fire Districts</div>
-							<div id="checkbox"><input type="checkbox" id="publicSafetyZone"> Public Safety Zone </div>
+							<div id="checkbox"><input type="checkbox" id="publicSafetyZone"> Public Safety Zone</div>
 							<div id="last5yearsFH"><input type="checkbox" id="last5yearsFireHistory"> Last 5 Years Fire History</div>
 							<div id="accordion"  class="panel-group">
 							
@@ -375,11 +362,11 @@
 										</div>
 										<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 											<img src="images/icons/safe.png" style="width:30px;">
-											DELWP districts
+											Safety Zone
 										</div>
 										<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 											<img src="images/icons/safe.png" style="width:30px;">
-											DELWP districts
+											Fire history
 										</div>
 									</div>
 								</div>
@@ -474,6 +461,7 @@
 						
 					</div>
 				</div>
+			</div>
 			</div> <!-- End of Legend modal -->			
 			
 						<!-- List of burns in a table-->
@@ -481,7 +469,7 @@
 
 				<!-- List of Burns Section-->
 			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" align="center">
-				<iframe id="summary" src="http://firewebext.fem.vic.gov.au/BurnsToday/burnssummary1_V2.htm" style="width: 95%; height: 700px; background: none; border: none;"></iframe>
+				<iframe id="summary" src="https://firewebext.ffm.vic.gov.au/BurnsToday/burnssummary1_V2.htm" style="width: 95%; height: 700px; background: none; border: none;"></iframe>
 				
 			</div>				
 			</div>
