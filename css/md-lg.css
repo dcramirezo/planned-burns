@@ -93,12 +93,7 @@ h1, h2, h3, h4, h5 {
 #BasemapToggle {
 	  display: none;
 	  text-align: center;
-	  position: absolute;
-	  //top: 120px;
-	  top: 140px;
-	  right: 30px;
-	  width: 48px;
-	  height:162px;
+	  margin-top: 0px;
 	  overflow-y:auto;
 	  background-color: #008348;
 	  opacity:1;
@@ -209,7 +204,9 @@ tr th {
     background: #fff;
     padding: 20px;
 }
-
+.BMicones{
+	border-radius: 5px;
+}
 
 @media (min-width: 993px) and (max-width: 1024px) {
 /* Logo bar for small screens*/
@@ -299,11 +296,6 @@ tr th {
 	#toolbar-btns {
 		padding-top: 0px;
 	}
-	#BasemapToggle {
-		top: 140px;
-		right: 30px;
-	}
-
 	#basemapDiv{
 		top: 115px;
 	}
