@@ -94,8 +94,7 @@ h1, h2, h3, h4, h5 {
 	  display: none;
 	  text-align: center;
 	  position: absolute;
-	  //top: 120px;
-	  top: 140px;
+	  top: 60px;
 	  right: 30px;
 	  width: 48px;
 	  height:162px;
@@ -300,7 +299,7 @@ tr th {
 		padding-top: 0px;
 	}
 	#BasemapToggle {
-		top: 140px;
+		top: 155px;
 		right: 30px;
 	}
 
